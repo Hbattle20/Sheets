@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useGameStore } from '@/stores/gameStore'
 import { getRandomCompany } from '@/lib/api'
 import CompanyCard from '@/components/game/CompanyCard'
-import ScoreBoard from '@/components/game/ScoreBoard'
+import { FeedbackButton } from '@/components/ui/FeedbackButton'
 
 export default function Home() {
   const { currentCompany, setCurrentCompany, isRevealing } = useGameStore()
@@ -24,6 +24,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-50 py-8">
+      <FeedbackButton />
       <div className="max-w-4xl mx-auto px-4">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
