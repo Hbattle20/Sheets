@@ -134,3 +134,25 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+balance-sheets-env/
+env/
+venv/
+ENV/
+.venv
+*.db
+*.sqlite3
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+
+# Claude
+.claude/

@@ -1,0 +1,11 @@
+# Balance Sheets Backend Requirements
+
+# Core dependencies
+requests==2.31.0          # For API calls
+psycopg2-binary==2.9.10   # PostgreSQL adapter (updated for Python 3.13 support)
+python-dotenv==1.0.0      # Environment variable management
+
+# Development dependencies (optional)
+# pytest==7.4.3           # For testing
+# black==23.11.0          # Code formatting
+# flake8==6.1.0           # Linting
