@@ -23,7 +23,33 @@ export default function TestSupabase() {
         tests.companiesTable = { error: e }
       }
 
-      // Test 2: Check all tables
+      // Test 2: Check quarterly data
+      try {
+        const { data: quarterlyData, error: quarterlyError } = await supabase
+          .from('financial_snapshots')
+          .select('company_id, period_end_date, report_type, revenue')
+          .eq('report_type', '10-Q')
+          .limit(10)
+        
+        tests.quarterlySnapshots = { data: quarterlyData, error: quarterlyError }
+        
+        // Count quarterly vs annual
+        const { count: annualCount } = await supabase
+          .from('financial_snapshots')
+          .select('*', { count: 'exact', head: true })
+          .eq('report_type', '10-K')
+          
+        const { count: quarterlyCount } = await supabase
+          .from('financial_snapshots')
+          .select('*', { count: 'exact', head: true })
+          .eq('report_type', '10-Q')
+          
+        tests.reportTypeCounts = { annual: annualCount, quarterly: quarterlyCount }
+      } catch (e) {
+        tests.quarterlySnapshots = { error: e }
+      }
+
+      // Test 3: Check all tables
       const tables = ['companies', 'financial_snapshots', 'market_data', 'company_metrics']
       
       for (const table of tables) {

@@ -97,3 +97,18 @@ export interface GuessResult {
   percentageDiff: number
   timestamp: Date
 }
+
+export interface ChatMessage {
+  id: string
+  role: 'user' | 'assistant'
+  content: string
+  timestamp: Date
+}
+
+export interface ChatSession {
+  id: string
+  companyId: number
+  messages: ChatMessage[]
+  createdAt: Date
+  updatedAt: Date
+}
