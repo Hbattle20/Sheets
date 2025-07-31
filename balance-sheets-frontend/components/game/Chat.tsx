@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from 'react'
 import { ChatMessage } from '@/types'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
+import { supabase } from '@/lib/supabase'
+import { useAuth } from '@/contexts/AuthContext'
 
 interface ChatProps {
   companyName: string
@@ -14,7 +16,9 @@ export function Chat({ companyName, companyId }: ChatProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [sessionId, setSessionId] = useState<number | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const { user } = useAuth()
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -24,20 +28,69 @@ export function Chat({ companyName, companyId }: ChatProps) {
     scrollToBottom()
   }, [messages])
 
-  // Load saved messages for this company
+  // Create or load chat session
   useEffect(() => {
-    const savedChats = localStorage.getItem(`chat-${companyId}`)
-    if (savedChats) {
-      setMessages(JSON.parse(savedChats))
-    }
-  }, [companyId])
+    const loadOrCreateSession = async () => {
+      if (user) {
+        // Check for existing session
+        const { data: existingSession } = await supabase
+          .from('chat_sessions')
+          .select('id')
+          .eq('user_id', user.id)
+          .eq('company_id', companyId)
+          .single()
 
-  // Save messages whenever they change
+        if (existingSession) {
+          setSessionId(existingSession.id)
+          
+          // Load messages from database
+          const { data: dbMessages } = await supabase
+            .from('chat_messages')
+            .select('*')
+            .eq('session_id', existingSession.id)
+            .order('created_at', { ascending: true })
+
+          if (dbMessages) {
+            setMessages(dbMessages.map(msg => ({
+              id: msg.id.toString(),
+              role: msg.role as 'user' | 'assistant',
+              content: msg.content,
+              timestamp: new Date(msg.created_at)
+            })))
+          }
+        } else {
+          // Create new session
+          const { data: newSession } = await supabase
+            .from('chat_sessions')
+            .insert({
+              user_id: user.id,
+              company_id: companyId
+            })
+            .select()
+            .single()
+
+          if (newSession) {
+            setSessionId(newSession.id)
+          }
+        }
+      } else {
+        // Not authenticated - use localStorage
+        const savedChats = localStorage.getItem(`chat-${companyId}`)
+        if (savedChats) {
+          setMessages(JSON.parse(savedChats))
+        }
+      }
+    }
+
+    loadOrCreateSession()
+  }, [companyId, user])
+
+  // Save messages to localStorage for non-authenticated users
   useEffect(() => {
-    if (messages.length > 0) {
+    if (!user && messages.length > 0) {
       localStorage.setItem(`chat-${companyId}`, JSON.stringify(messages))
     }
-  }, [messages, companyId])
+  }, [messages, companyId, user])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -54,8 +107,23 @@ export function Chat({ companyName, companyId }: ChatProps) {
     setInput('')
     setIsLoading(true)
 
+    // Save user message to database if authenticated
+    if (user && sessionId) {
+      try {
+        await supabase
+          .from('chat_messages')
+          .insert({
+            session_id: sessionId,
+            role: 'user',
+            content: userMessage.content
+          })
+      } catch (error) {
+        console.error('Error saving message:', error)
+      }
+    }
+
     // Mock response for now - replace with actual API call later
-    setTimeout(() => {
+    setTimeout(async () => {
       const mockResponse: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
@@ -64,6 +132,21 @@ export function Chat({ companyName, companyId }: ChatProps) {
       }
       setMessages(prev => [...prev, mockResponse])
       setIsLoading(false)
+
+      // Save assistant message to database if authenticated
+      if (user && sessionId) {
+        try {
+          await supabase
+            .from('chat_messages')
+            .insert({
+              session_id: sessionId,
+              role: 'assistant',
+              content: mockResponse.content
+            })
+        } catch (error) {
+          console.error('Error saving assistant message:', error)
+        }
+      }
     }, 1000)
   }
 

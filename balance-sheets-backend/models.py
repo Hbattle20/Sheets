@@ -82,6 +82,38 @@ class DataFetchLog:
     error_message: Optional[str] = None
 
 
+@dataclass
+class UserMatch:
+    """User's guess for a company's market cap"""
+    id: Optional[int] = None
+    user_id: str = ''  # UUID from auth.users
+    company_id: int = 0
+    guess: Decimal = Decimal('0')
+    actual_market_cap: Decimal = Decimal('0')
+    is_match: bool = False
+    percentage_diff: Optional[Decimal] = None
+    created_at: Optional[datetime] = None
+
+
+@dataclass
+class ChatSession:
+    """Chat session between user and AI for a specific company"""
+    id: Optional[int] = None
+    user_id: str = ''  # UUID from auth.users
+    company_id: int = 0
+    created_at: Optional[datetime] = None
+
+
+@dataclass
+class ChatMessage:
+    """Individual message in a chat session"""
+    id: Optional[int] = None
+    session_id: int = 0
+    role: str = ''  # 'user' or 'assistant'
+    content: str = ''
+    created_at: Optional[datetime] = None
+
+
 # SQL Table Creation Statements
 SQL_CREATE_TABLES = """
 -- Companies table
@@ -165,9 +197,40 @@ CREATE TABLE IF NOT EXISTS data_fetch_log (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- User matches table
+CREATE TABLE IF NOT EXISTS user_matches (
+    id SERIAL PRIMARY KEY,
+    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+    company_id INTEGER REFERENCES companies(id) ON DELETE CASCADE,
+    guess NUMERIC(20, 2),
+    actual_market_cap NUMERIC(20, 2),
+    is_match BOOLEAN,
+    percentage_diff NUMERIC(10, 2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Chat sessions table
+CREATE TABLE IF NOT EXISTS chat_sessions (
+    id SERIAL PRIMARY KEY,
+    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+    company_id INTEGER REFERENCES companies(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Chat messages table
+CREATE TABLE IF NOT EXISTS chat_messages (
+    id SERIAL PRIMARY KEY,
+    session_id INTEGER REFERENCES chat_sessions(id) ON DELETE CASCADE,
+    role VARCHAR(20) CHECK (role IN ('user', 'assistant')),
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Create indexes
 CREATE INDEX IF NOT EXISTS idx_companies_ticker ON companies(ticker);
 CREATE INDEX IF NOT EXISTS idx_financial_snapshots_company_date ON financial_snapshots(company_id, period_end_date);
 CREATE INDEX IF NOT EXISTS idx_market_data_last_updated ON market_data(last_updated);
 CREATE INDEX IF NOT EXISTS idx_data_fetch_log_timestamp ON data_fetch_log(fetch_timestamp);
+CREATE INDEX IF NOT EXISTS idx_user_matches_user_id ON user_matches(user_id);
+CREATE INDEX IF NOT EXISTS idx_chat_sessions_user_id ON chat_sessions(user_id);
 """

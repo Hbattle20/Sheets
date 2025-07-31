@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { GameState, GameCompany, GuessResult } from '@/types'
+import { supabase } from '@/lib/supabase'
 
 interface SavedMatch {
   company: GameCompany
@@ -71,6 +72,31 @@ export const useGameStore = create<GameStore>()(
               timestamp: new Date(),
             }
           ] : state.savedMatches
+
+          // Save to database if user is authenticated
+          const saveToDatabase = async () => {
+            const { data: { user } } = await supabase.auth.getUser()
+            
+            if (user) {
+              try {
+                await supabase
+                  .from('user_matches')
+                  .insert({
+                    user_id: user.id,
+                    company_id: state.currentCompany!.id,
+                    guess: guess,
+                    actual_market_cap: actual,
+                    is_match: isMatch,
+                    percentage_diff: percentageDiff,
+                  })
+              } catch (error) {
+                console.error('Error saving match to database:', error)
+              }
+            }
+          }
+
+          // Execute database save asynchronously
+          saveToDatabase()
 
           return {
             lastGuess: guess,
