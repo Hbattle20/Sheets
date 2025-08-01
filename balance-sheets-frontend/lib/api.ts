@@ -1,26 +1,13 @@
 import { supabase } from './supabase'
 import { GameCompany } from '@/types'
 
-export async function getRandomCompany(difficulty?: number): Promise<GameCompany | null> {
+async function fetchCompanyData(company: any): Promise<GameCompany | null> {
   try {
-    // First, get all companies
-    const { data: companies, error: companiesError } = await supabase
-      .from('companies')
-      .select('*')
-    
-    if (companiesError || !companies || companies.length === 0) {
-      console.error('Error fetching companies:', companiesError)
-      return null
-    }
-
-    // Select a random company
-    const randomCompany = companies[Math.floor(Math.random() * companies.length)]
-
     // Get all financial snapshots for this company (for historical data)
     const { data: allSnapshots, error: snapshotError } = await supabase
       .from('financial_snapshots')
       .select('*')
-      .eq('company_id', randomCompany.id)
+      .eq('company_id', company.id)
       .eq('report_type', '10-K') // Annual reports only
       .order('period_end_date', { ascending: false })
 
@@ -35,7 +22,7 @@ export async function getRandomCompany(difficulty?: number): Promise<GameCompany
     const { data: marketData, error: marketError } = await supabase
       .from('market_data')
       .select('*')
-      .eq('company_id', randomCompany.id)
+      .eq('company_id', company.id)
       .single()
 
     if (marketError || !marketData) {
@@ -47,19 +34,13 @@ export async function getRandomCompany(difficulty?: number): Promise<GameCompany
     const { data: metrics, error: metricsError } = await supabase
       .from('company_metrics')
       .select('*')
-      .eq('company_id', randomCompany.id)
+      .eq('company_id', company.id)
       .eq('snapshot_id', latestSnapshot.id)
       .single()
 
     if (metricsError || !metrics) {
       console.error('Error fetching metrics:', metricsError)
       return null
-    }
-
-    // Apply difficulty filter if provided
-    if (difficulty && Math.abs(metrics.difficulty_score - difficulty) > 1) {
-      // Try again with a different company
-      return getRandomCompany(difficulty)
     }
 
     // Build 10 years of historical data
@@ -94,16 +75,16 @@ export async function getRandomCompany(difficulty?: number): Promise<GameCompany
 
     // Transform the data to match our GameCompany interface
     const gameCompany: GameCompany = {
-      id: randomCompany.id,
+      id: company.id,
       hiddenData: {
-        name: randomCompany.name,
-        ticker: randomCompany.ticker,
-        logo_url: randomCompany.logo_url || '',
+        name: company.name,
+        ticker: company.ticker,
+        logo_url: company.logo_url || '',
         market_cap: marketData.market_cap,
       },
       visibleData: {
-        sector: randomCompany.sector,
-        industry: randomCompany.industry,
+        sector: company.sector,
+        industry: company.industry,
         historicalData,
         currentMetrics: {
           p_e_ratio: metrics.p_e_ratio,
@@ -113,6 +94,61 @@ export async function getRandomCompany(difficulty?: number): Promise<GameCompany
           difficulty_score: metrics.difficulty_score,
         },
       },
+    }
+
+    return gameCompany
+  } catch (error) {
+    console.error('Error fetching company data:', error)
+    return null
+  }
+}
+
+export async function getCompanyById(companyId: number): Promise<GameCompany | null> {
+  try {
+    // Get the specific company
+    const { data: company, error: companyError } = await supabase
+      .from('companies')
+      .select('*')
+      .eq('id', companyId)
+      .single()
+    
+    if (companyError || !company) {
+      console.error('Error fetching company:', companyError)
+      return null
+    }
+
+    return await fetchCompanyData(company)
+  } catch (error) {
+    console.error('Error in getCompanyById:', error)
+    return null
+  }
+}
+
+export async function getRandomCompany(difficulty?: number): Promise<GameCompany | null> {
+  try {
+    // First, get all companies
+    const { data: companies, error: companiesError } = await supabase
+      .from('companies')
+      .select('*')
+    
+    if (companiesError || !companies || companies.length === 0) {
+      console.error('Error fetching companies:', companiesError)
+      return null
+    }
+
+    // Select a random company
+    const randomCompany = companies[Math.floor(Math.random() * companies.length)]
+
+    const gameCompany = await fetchCompanyData(randomCompany)
+    
+    if (!gameCompany) {
+      return null
+    }
+
+    // Apply difficulty filter if provided
+    if (difficulty && Math.abs(gameCompany.visibleData.currentMetrics.difficulty_score - difficulty) > 1) {
+      // Try again with a different company
+      return getRandomCompany(difficulty)
     }
 
     return gameCompany

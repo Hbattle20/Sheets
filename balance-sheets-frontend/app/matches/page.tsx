@@ -18,6 +18,7 @@ interface DatabaseMatch {
   percentage_diff: number
   created_at: string
   company: {
+    id: number
     name: string
     ticker: string
     sector: string

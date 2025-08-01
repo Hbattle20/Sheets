@@ -50,7 +50,7 @@ export function PasswordReset({ onBackToSignIn }: PasswordResetProps) {
         <p className="text-sm text-gray-600">
           We've sent you a password reset link. Please check your inbox and follow the instructions.
         </p>
-        <Button onClick={onBackToSignIn} variant="secondary" className="mt-4">
+        <Button onClick={onBackToSignIn} variant="outline" className="mt-4">
           Back to sign in
         </Button>
       </div>
