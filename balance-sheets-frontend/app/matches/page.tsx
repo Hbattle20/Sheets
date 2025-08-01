@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { useGameStore } from '@/stores/gameStore'
 import { useAuth } from '@/contexts/AuthContext'
 import { supabase } from '@/lib/supabase'
@@ -29,73 +30,86 @@ interface DatabaseMatch {
 export default function MatchesPage() {
   const { savedMatches: localMatches } = useGameStore()
   const { user } = useAuth()
+  const router = useRouter()
   const [matches, setMatches] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedMatchIndex, setSelectedMatchIndex] = useState<number | null>(null)
 
+  // Redirect to home if not authenticated
+  useEffect(() => {
+    if (!user) {
+      router.push('/')
+    }
+  }, [user, router])
+
   useEffect(() => {
     const loadMatches = async () => {
-      if (user) {
-        // Load from database for authenticated users
-        try {
-          const { data, error } = await supabase
-            .from('user_matches')
-            .select(`
-              *,
-              company:companies(
-                id,
-                name,
-                ticker,
-                sector,
-                logo_url
-              )
-            `)
-            .eq('user_id', user.id)
-            .order('created_at', { ascending: false })
-
-          if (error) {
-            console.error('Error loading matches:', error)
-            // Fall back to local storage on error
-            setMatches(localMatches)
-          } else {
-            // Transform database matches to match local format
-            const transformedMatches = data.map((match: DatabaseMatch) => ({
-              company: {
-                id: match.company.id,
-                hiddenData: {
-                  name: match.company.name,
-                  ticker: match.company.ticker,
-                  market_cap: match.actual_market_cap,
-                  logo: match.company.logo_url
-                },
-                visibleData: {
-                  sector: match.company.sector,
-                  // Note: historicalData not available from database
-                  historicalData: null
-                }
-              },
-              guess: match.guess,
-              actual: match.actual_market_cap,
-              isMatch: match.is_match,
-              percentageDiff: match.percentage_diff,
-              timestamp: new Date(match.created_at),
-              fromDatabase: true // Flag to indicate limited data
-            }))
-            setMatches(transformedMatches)
-          }
-        } catch (error) {
-          console.error('Error loading matches:', error)
-          setMatches(localMatches)
-        }
-      } else {
-        // Use local storage for anonymous users
-        setMatches(localMatches)
+      if (!user) {
+        setLoading(false)
+        return
       }
+
+      // Load from database for authenticated users
+      try {
+        const { data, error } = await supabase
+          .from('user_matches')
+          .select(`
+            *,
+            company:companies(
+              id,
+              name,
+              ticker,
+              sector,
+              logo_url
+            )
+          `)
+          .eq('user_id', user.id)
+          .order('created_at', { ascending: false })
+
+        if (error) {
+          console.error('Error loading matches:', error)
+          setMatches([])
+        } else {
+          // Transform database matches to match local format
+          const transformedMatches = data.map((match: DatabaseMatch) => ({
+            company: {
+              id: match.company.id,
+              hiddenData: {
+                name: match.company.name,
+                ticker: match.company.ticker,
+                market_cap: match.actual_market_cap,
+                logo: match.company.logo_url
+              },
+              visibleData: {
+                sector: match.company.sector,
+                // Note: historicalData not available from database
+                historicalData: null
+              }
+            },
+            guess: match.guess,
+            actual: match.actual_market_cap,
+            isMatch: match.is_match,
+            percentageDiff: match.percentage_diff,
+            timestamp: new Date(match.created_at),
+            fromDatabase: true // Flag to indicate limited data
+          }))
+          setMatches(transformedMatches)
+        }
+      } catch (error) {
+        console.error('Error loading matches:', error)
+        setMatches([])
+      }
+      
       setLoading(false)
     }
 
     loadMatches()
-  }, [user, localMatches])
+  }, [user])
+
+  // Don't render anything while checking auth
+  if (!user && loading) {
+    return null
+  }
 
   if (selectedMatchIndex !== null && matches[selectedMatchIndex]) {
     return (
