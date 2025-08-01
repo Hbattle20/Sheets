@@ -42,7 +42,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signUp = async (email: string, password: string) => {
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -51,6 +51,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       })
       
       if (error) throw error
+      
+      // Check if user was created but needs email confirmation
+      console.log('Sign up response:', { 
+        user: data.user?.id,
+        session: data.session,
+        needsEmailConfirmation: !data.session 
+      })
+      
       return { error: null }
     } catch (error) {
       return { error: error as Error }

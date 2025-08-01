@@ -28,15 +28,50 @@ export default function CompanyCard({ company }: CompanyCardProps) {
   const [authModalView, setAuthModalView] = useState<'signin' | 'signup'>('signup')
   const [waitingForAuth, setWaitingForAuth] = useState(false)
   const [previousUser, setPreviousUser] = useState(user)
+  const [pendingMatch, setPendingMatch] = useState<{
+    companyId: number
+    guess: number
+    actualMarketCap: number
+  } | null>(null)
+
+  // Check for pending match on mount
+  useEffect(() => {
+    const savedPendingMatch = localStorage.getItem('pendingMatch')
+    if (savedPendingMatch) {
+      try {
+        const match = JSON.parse(savedPendingMatch)
+        setPendingMatch(match)
+        console.log('Found pending match in localStorage:', match)
+      } catch (e) {
+        console.error('Error parsing pending match:', e)
+      }
+    }
+  }, [])
 
   // Watch for authentication changes when waiting
   useEffect(() => {
+    console.log('Auth state check:', { 
+      previousUser: previousUser?.id, 
+      currentUser: user?.id, 
+      waitingForAuth,
+      isNewUser: !previousUser && !!user
+    })
+    
     // Check if user just signed in (was null, now has value)
-    if (!previousUser && user && waitingForAuth) {
+    if (!previousUser && user && (waitingForAuth || pendingMatch)) {
+      console.log('User authenticated, saving match...', { waitingForAuth, pendingMatch })
+      
       // User just authenticated, save the match to database
       const saveMatch = async () => {
-        if (lastGuess && company) {
-          const isMatch = lastGuess >= company.hiddenData.market_cap
+        // Use pending match data if available, otherwise use current state
+        const matchData = pendingMatch || (lastGuess && company ? {
+          companyId: company.id,
+          guess: lastGuess,
+          actualMarketCap: company.hiddenData.market_cap
+        } : null)
+        
+        if (matchData) {
+          const isMatch = matchData.guess >= matchData.actualMarketCap
           
           // Only save if it was actually a match
           if (!isMatch) {
@@ -48,15 +83,19 @@ export default function CompanyCard({ company }: CompanyCardProps) {
               .from('user_matches')
               .insert({
                 user_id: user.id,
-                company_id: company.id,
-                guess: lastGuess,
-                actual_market_cap: company.hiddenData.market_cap,
+                company_id: matchData.companyId,
+                guess: matchData.guess,
+                actual_market_cap: matchData.actualMarketCap,
                 is_match: isMatch,
-                percentage_diff: ((lastGuess - company.hiddenData.market_cap) / company.hiddenData.market_cap) * 100,
+                percentage_diff: ((matchData.guess - matchData.actualMarketCap) / matchData.actualMarketCap) * 100,
               })
               
             if (error) {
               console.error('Error saving match after authentication:', error)
+            } else {
+              console.log('Match saved successfully!')
+              // Clear from localStorage after successful save
+              localStorage.removeItem('pendingMatch')
             }
           } catch (error) {
             console.error('Error saving match after authentication:', error)
@@ -66,7 +105,8 @@ export default function CompanyCard({ company }: CompanyCardProps) {
       
       saveMatch()
       
-      // Proceed with reveal
+      // Clear pending match and proceed with reveal
+      setPendingMatch(null)
       setWaitingForAuth(false)
       setShowAuthModal(false)
     }
@@ -75,7 +115,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
     if (user !== previousUser) {
       setPreviousUser(user)
     }
-  }, [user, waitingForAuth, lastGuess, company, previousUser])
+  }, [user, waitingForAuth, lastGuess, company, previousUser, pendingMatch])
 
   const handleGuessSubmit = () => {
     setHasGuessed(true)
@@ -87,6 +127,17 @@ export default function CompanyCard({ company }: CompanyCardProps) {
       
       // Check if it's a match and user is not authenticated
       if (currentGuess && currentGuess >= company.hiddenData.market_cap && !user) {
+        // Save match data for later
+        const matchData = {
+          companyId: company.id,
+          guess: currentGuess,
+          actualMarketCap: company.hiddenData.market_cap
+        }
+        setPendingMatch(matchData)
+        
+        // Also save to localStorage in case user needs to confirm email
+        localStorage.setItem('pendingMatch', JSON.stringify(matchData))
+        
         setShowMatchPrompt(true)
       }
     }, 100)

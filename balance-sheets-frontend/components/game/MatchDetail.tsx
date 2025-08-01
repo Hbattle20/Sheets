@@ -17,7 +17,9 @@ interface MatchDetailProps {
 }
 
 export default function MatchDetail({ match }: MatchDetailProps) {
-  const tabs = [
+  const hasHistoricalData = match.company.visibleData?.historicalData
+  
+  const tabs = hasHistoricalData ? [
     {
       id: 'balance-sheet',
       label: 'Balance Sheet',
@@ -33,7 +35,7 @@ export default function MatchDetail({ match }: MatchDetailProps) {
       label: 'Cash Flow',
       content: <CashFlowStatement data={match.company.visibleData.historicalData} />
     }
-  ]
+  ] : []
 
   return (
     <Card className="max-w-6xl mx-auto">
@@ -73,7 +75,14 @@ export default function MatchDetail({ match }: MatchDetailProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
             <h3 className="text-lg font-semibold mb-4">Financial Statements</h3>
-            <Tabs tabs={tabs} defaultTab="balance-sheet" />
+            {hasHistoricalData ? (
+              <Tabs tabs={tabs} defaultTab="balance-sheet" />
+            ) : (
+              <div className="bg-gray-50 rounded-lg p-4 text-gray-600 text-sm">
+                <p>Financial statement details are only available for matches made on this device.</p>
+                <p className="mt-2">To see full financial data, play new matches!</p>
+              </div>
+            )}
           </div>
           
           <div>
