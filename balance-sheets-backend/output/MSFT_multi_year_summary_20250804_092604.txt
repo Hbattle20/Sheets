@@ -1,0 +1,19 @@
+Multi-Year 10-K Processing Summary for MSFT
+==================================================
+
+Processing Date: 2025-08-04T09:26:04.243327
+Years Requested: 5
+Filings Found: 5
+Successfully Processed: 5
+
+Processed Filings:
+  - 2025 (filed 2025-07-30)
+    Output: output/MSFT_2025
+  - 2024 (filed 2024-07-30)
+    Output: output/MSFT_2024
+  - 2023 (filed 2023-07-27)
+    Output: output/MSFT_2023
+  - 2022 (filed 2022-07-28)
+    Output: output/MSFT_2022
+  - 2021 (filed 2021-07-29)
+    Output: output/MSFT_2021

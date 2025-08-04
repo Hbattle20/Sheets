@@ -1,0 +1,24 @@
+10-K Processing Summary for MSFT
+==================================================
+
+Filing Date: 2021-07-29
+Accession Number: 0001564590-21-039151
+Processing Date: 2025-08-04T09:26:04.243090
+
+Sections Extracted: 13
+  - Item 1 - Business
+  - Item 1A - Risk Factors
+  - Item 1B - Unresolved Staff Comments
+  - Item 2 - Properties
+  - Item 3 - Legal Proceedings
+  - Item 4 - Mine Safety Disclosures
+  - Item 5 - Market Information
+  - Item 7 - MD&A
+  - Item 7A - Market Risk
+  - Item 8 - Financial Statements
+  - Item 9 - Changes in Accountants
+  - Item 9A - Controls and Procedures
+  - Item 9B - Other Information
+
+Total Chunks: 66
+Average Chunk Size: 855 words

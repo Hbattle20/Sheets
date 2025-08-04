@@ -1,7 +1,7 @@
 """ETL Pipeline for fetching and storing financial data"""
 import logging
 from datetime import datetime
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 
 from config import FMP_RATE_LIMIT_PER_DAY
 from database import Database
@@ -9,7 +9,7 @@ from fetcher import FMPClient
 from calculations import FinancialCalculator
 from models import (
     Company, FinancialSnapshot, MarketData,
-    CompanyMetrics, DataFetchLog
+    CompanyMetrics, DataFetchLog, AnnualReport
 )
 
 logging.basicConfig(
@@ -150,6 +150,12 @@ class DataPipeline:
             # Print summary
             self._print_summary(ticker, company, snapshot, market, metrics)
             
+            # Try to fetch annual report (optional, don't fail if it doesn't work)
+            try:
+                self.fetch_and_store_annual_report(ticker, company_id)
+            except Exception as e:
+                logger.warning(f"Could not fetch annual report for {ticker}: {e}")
+            
             return True
             
         except Exception as e:
@@ -237,3 +243,104 @@ class DataPipeline:
             
         finally:
             self.db.log_fetch_attempt(fetch_log)
+    
+    def fetch_and_store_annual_report(self, ticker: str, company_id: int, year: Optional[int] = None) -> bool:
+        """Fetch and store annual report (10-K) data
+        
+        Args:
+            ticker: Company ticker symbol
+            company_id: Database ID of the company
+            year: Specific year to fetch (optional, defaults to latest)
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        logger.info(f"Fetching annual report for {ticker} (year: {year or 'latest'})")
+        
+        try:
+            # Fetch 10-K data from FMP
+            report_data = self.api_client.fetch_annual_report(ticker, year)
+            
+            if not report_data.get('success'):
+                logger.error(f"Failed to fetch annual report: {report_data.get('error')}")
+                return False
+            
+            # Extract sections from the response
+            fiscal_year = report_data.get('fiscal_year')
+            filing_info = report_data.get('filing_info', {})
+            sections = report_data.get('sections', {})
+            
+            # Parse filing date
+            filing_date = None
+            if filing_date_str := filing_info.get('filing_date'):
+                try:
+                    filing_date = datetime.strptime(filing_date_str[:10], '%Y-%m-%d')
+                except:
+                    pass
+            
+            # Create AnnualReport object
+            annual_report = AnnualReport(
+                company_id=company_id,
+                fiscal_year=fiscal_year,
+                filing_date=filing_date,
+                filing_url=filing_info.get('filing_url'),
+                raw_json=sections  # Store the entire response for future use
+            )
+            
+            # Try to extract specific sections if available
+            if isinstance(sections, dict):
+                # These field names will depend on what FMP actually returns
+                # We'll need to adjust based on the test results
+                annual_report.business_overview = self._extract_text(sections, ['business', 'businessDescription', 'item1'])
+                annual_report.risk_factors = self._extract_text(sections, ['riskFactors', 'risks', 'item1a'])
+                annual_report.properties = self._extract_text(sections, ['properties', 'item2'])
+                annual_report.legal_proceedings = self._extract_text(sections, ['legalProceedings', 'legal', 'item3'])
+                annual_report.md_and_a = self._extract_text(sections, ['mdna', 'mdAndA', 'managementDiscussion', 'item7'])
+                annual_report.accounting_policies = self._extract_text(sections, ['accountingPolicies', 'significantAccountingPolicies'])
+                annual_report.revenue_recognition = self._extract_text(sections, ['revenueRecognition'])
+                annual_report.segment_information = self._extract_text(sections, ['segments', 'operatingSegments'])
+            
+            # Store in database
+            report_id = self.db.insert_or_update_annual_report(annual_report)
+            logger.info(f"Successfully stored annual report for {ticker} (fiscal year {fiscal_year}, ID: {report_id})")
+            
+            # Log the API calls used
+            if api_calls := report_data.get('api_calls_used', 0):
+                fetch_log = DataFetchLog(
+                    ticker=ticker,
+                    fetch_timestamp=datetime.now(),
+                    success=True,
+                    api_calls_used=api_calls,
+                    error_message=f"Annual report fetch for fiscal year {fiscal_year}"
+                )
+                self.db.log_fetch_attempt(fetch_log)
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error fetching annual report for {ticker}: {e}")
+            return False
+    
+    def _extract_text(self, data: Dict[str, Any], possible_keys: List[str], max_length: Optional[int] = None) -> Optional[str]:
+        """Extract text from data using possible field names
+        
+        Args:
+            data: Dictionary to search in
+            possible_keys: List of possible field names to try
+            max_length: Maximum length of text to store (optional)
+            
+        Returns:
+            The extracted text or None
+        """
+        for key in possible_keys:
+            if value := data.get(key):
+                if isinstance(value, str):
+                    text = value.strip()
+                    if max_length and len(text) > max_length:
+                        text = text[:max_length] + "..."
+                    return text
+                elif isinstance(value, dict):
+                    # Recursively search in nested dict
+                    if text := self._extract_text(value, ['text', 'content', 'value']):
+                        return text
+        return None

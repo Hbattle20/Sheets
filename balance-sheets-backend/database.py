@@ -10,7 +10,7 @@ from contextlib import contextmanager
 from config import SUPABASE_URL, SUPABASE_KEY, DATABASE_URL, DB_SCHEMA
 from models import (
     Company, FinancialSnapshot, MarketData, 
-    CompanyMetrics, DataFetchLog, SQL_CREATE_TABLES
+    CompanyMetrics, DataFetchLog, AnnualReport, SQL_CREATE_TABLES
 )
 
 logger = logging.getLogger(__name__)
@@ -215,6 +215,71 @@ class Database:
                 
                 result = cur.fetchone()
                 return result[0] if result else 0
+    
+    def insert_or_update_annual_report(self, report: AnnualReport) -> int:
+        """Insert or update an annual report
+        
+        Returns the report ID
+        """
+        with self.get_connection() as conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                cur.execute("""
+                    INSERT INTO annual_reports 
+                    (company_id, fiscal_year, filing_date, business_overview,
+                     risk_factors, properties, legal_proceedings, md_and_a,
+                     accounting_policies, revenue_recognition, segment_information,
+                     filing_url, raw_json)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (company_id, fiscal_year)
+                    DO UPDATE SET
+                        filing_date = EXCLUDED.filing_date,
+                        business_overview = EXCLUDED.business_overview,
+                        risk_factors = EXCLUDED.risk_factors,
+                        properties = EXCLUDED.properties,
+                        legal_proceedings = EXCLUDED.legal_proceedings,
+                        md_and_a = EXCLUDED.md_and_a,
+                        accounting_policies = EXCLUDED.accounting_policies,
+                        revenue_recognition = EXCLUDED.revenue_recognition,
+                        segment_information = EXCLUDED.segment_information,
+                        filing_url = EXCLUDED.filing_url,
+                        raw_json = EXCLUDED.raw_json
+                    RETURNING id
+                """, (
+                    report.company_id, report.fiscal_year, report.filing_date,
+                    report.business_overview, report.risk_factors, report.properties,
+                    report.legal_proceedings, report.md_and_a,
+                    report.accounting_policies, report.revenue_recognition,
+                    report.segment_information, report.filing_url,
+                    Json(report.raw_json) if report.raw_json else None
+                ))
+                
+                result = cur.fetchone()
+                conn.commit()
+                return result['id']
+    
+    def get_annual_report(self, company_id: int, fiscal_year: int) -> Optional[Dict[str, Any]]:
+        """Get an annual report for a company and year"""
+        with self.get_connection() as conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                cur.execute("""
+                    SELECT * FROM annual_reports 
+                    WHERE company_id = %s AND fiscal_year = %s
+                """, (company_id, fiscal_year))
+                
+                return cur.fetchone()
+    
+    def get_latest_annual_report(self, company_id: int) -> Optional[Dict[str, Any]]:
+        """Get the latest annual report for a company"""
+        with self.get_connection() as conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cur:
+                cur.execute("""
+                    SELECT * FROM annual_reports 
+                    WHERE company_id = %s
+                    ORDER BY fiscal_year DESC
+                    LIMIT 1
+                """, (company_id,))
+                
+                return cur.fetchone()
     
     def test_connection(self) -> bool:
         """Test the database connection"""

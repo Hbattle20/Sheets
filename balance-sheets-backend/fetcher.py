@@ -113,6 +113,107 @@ class FMPClient:
             params={'period': period, 'limit': limit}
         )
     
+    def get_sec_filings(self, ticker: str, filing_type: str = '10-K', limit: int = 5) -> List[Dict[str, Any]]:
+        """Get SEC filings list for a company
+        
+        Args:
+            ticker: Stock ticker symbol
+            filing_type: Type of filing (10-K, 10-Q, 8-K, etc.)
+            limit: Number of filings to return
+        """
+        return self._make_request(
+            f"v3/sec_filings/{ticker}",
+            params={'type': filing_type, 'page': 0}
+        )[:limit]
+    
+    def get_financial_reports_json(self, ticker: str, year: int, period: str = 'FY') -> Dict[str, Any]:
+        """Get parsed financial report data (10-K or 10-Q)
+        
+        Args:
+            ticker: Stock ticker symbol
+            year: Fiscal year
+            period: 'FY' for annual (10-K) or 'Q1', 'Q2', 'Q3', 'Q4' for quarterly
+        """
+        return self._make_request(
+            f"v4/financial-reports-json",
+            params={'symbol': ticker, 'year': year, 'period': period}
+        )
+    
+    def fetch_annual_report(self, ticker: str, year: Optional[int] = None) -> Dict[str, Any]:
+        """Fetch annual report (10-K) data for a company
+        
+        Returns a dictionary with:
+        - filing_info: Basic filing information
+        - sections: Parsed 10-K sections if available
+        - success: Whether fetch was successful
+        - api_calls_used: Number of API calls made
+        """
+        api_calls = 0
+        result = {
+            'success': False,
+            'api_calls_used': 0
+        }
+        
+        try:
+            # First, get the filing information
+            logger.info(f"Fetching 10-K filings list for {ticker}")
+            filings = self.get_sec_filings(ticker, '10-K', 5)
+            api_calls += 1
+            
+            if not filings:
+                raise Exception("No 10-K filings found")
+            
+            # Find the filing for the requested year or get the latest
+            target_filing = None
+            if year:
+                for filing in filings:
+                    filing_year = int(filing.get('fillingDate', '')[:4])
+                    if filing_year == year or filing_year == year + 1:  # Filed in year or early next year
+                        target_filing = filing
+                        break
+            else:
+                target_filing = filings[0]  # Latest filing
+            
+            if not target_filing:
+                raise Exception(f"No 10-K filing found for year {year}")
+            
+            result['filing_info'] = {
+                'filing_date': target_filing.get('fillingDate'),
+                'accepted_date': target_filing.get('acceptedDate'),
+                'filing_url': target_filing.get('link'),
+                'final_url': target_filing.get('finalLink')
+            }
+            
+            # Extract year from filing
+            filing_year = int(target_filing.get('fillingDate', '')[:4])
+            fiscal_year = filing_year - 1  # Usually for previous fiscal year
+            
+            # Try to get parsed report data
+            logger.info(f"Fetching parsed 10-K data for {ticker} fiscal year {fiscal_year}")
+            try:
+                report_data = self.get_financial_reports_json(ticker, fiscal_year, 'FY')
+                api_calls += 1
+                
+                if report_data:
+                    result['sections'] = report_data
+                    result['has_parsed_data'] = True
+            except Exception as e:
+                logger.warning(f"Could not fetch parsed report data: {e}")
+                result['has_parsed_data'] = False
+            
+            result['fiscal_year'] = fiscal_year
+            result['api_calls_used'] = api_calls
+            result['success'] = True
+            
+            logger.info(f"Successfully fetched 10-K data for {ticker} using {api_calls} API calls")
+            
+        except Exception as e:
+            logger.error(f"Error fetching 10-K for {ticker}: {e}")
+            result['error'] = str(e)
+            result['api_calls_used'] = api_calls
+        
+        return result
+    
     def fetch_company_data(self, ticker: str) -> Dict[str, Any]:
         """Fetch all necessary data for a company
         

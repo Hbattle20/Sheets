@@ -114,6 +114,31 @@ class ChatMessage:
     created_at: Optional[datetime] = None
 
 
+@dataclass
+class AnnualReport:
+    """Annual report (10-K) data"""
+    id: Optional[int] = None
+    company_id: int = 0
+    fiscal_year: int = 0
+    filing_date: Optional[datetime] = None
+    
+    # Key sections from 10-K
+    business_overview: Optional[str] = None
+    risk_factors: Optional[str] = None
+    properties: Optional[str] = None
+    legal_proceedings: Optional[str] = None
+    md_and_a: Optional[str] = None  # Management Discussion & Analysis
+    
+    # Financial statement notes
+    accounting_policies: Optional[str] = None
+    revenue_recognition: Optional[str] = None
+    segment_information: Optional[str] = None
+    
+    # Metadata
+    filing_url: Optional[str] = None
+    raw_json: Optional[Dict[str, Any]] = None
+
+
 # SQL Table Creation Statements
 SQL_CREATE_TABLES = """
 -- Companies table
@@ -226,6 +251,33 @@ CREATE TABLE IF NOT EXISTS chat_messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Annual reports table
+CREATE TABLE IF NOT EXISTS annual_reports (
+    id SERIAL PRIMARY KEY,
+    company_id INTEGER REFERENCES companies(id) ON DELETE CASCADE,
+    fiscal_year INTEGER NOT NULL,
+    filing_date DATE,
+    
+    -- Key sections from 10-K
+    business_overview TEXT,
+    risk_factors TEXT,
+    properties TEXT,
+    legal_proceedings TEXT,
+    md_and_a TEXT,  -- Management Discussion & Analysis
+    
+    -- Financial statement notes
+    accounting_policies TEXT,
+    revenue_recognition TEXT,
+    segment_information TEXT,
+    
+    -- Metadata
+    filing_url TEXT,
+    raw_json JSONB,
+    
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(company_id, fiscal_year)
+);
+
 -- Create indexes
 CREATE INDEX IF NOT EXISTS idx_companies_ticker ON companies(ticker);
 CREATE INDEX IF NOT EXISTS idx_financial_snapshots_company_date ON financial_snapshots(company_id, period_end_date);
@@ -233,4 +285,5 @@ CREATE INDEX IF NOT EXISTS idx_market_data_last_updated ON market_data(last_upda
 CREATE INDEX IF NOT EXISTS idx_data_fetch_log_timestamp ON data_fetch_log(fetch_timestamp);
 CREATE INDEX IF NOT EXISTS idx_user_matches_user_id ON user_matches(user_id);
 CREATE INDEX IF NOT EXISTS idx_chat_sessions_user_id ON chat_sessions(user_id);
+CREATE INDEX IF NOT EXISTS idx_annual_reports_company_year ON annual_reports(company_id, fiscal_year);
 """

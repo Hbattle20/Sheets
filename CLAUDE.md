@@ -174,3 +174,107 @@ const result = await api.matches.submit({
 2. **Auth Issues**: Check Supabase Auth settings and RLS policies
 3. **API Limits**: Monitor with `get_api_calls_today()` method
 4. **Type Errors**: Run `npm run lint` in frontend before commits
+
+## Claude Chat Integration Plan
+
+The chat feature currently uses mock responses. Here's the step-by-step plan to integrate real Claude API:
+
+### Current Implementation
+- **Frontend**: `components/game/Chat.tsx` - Working UI with mock responses
+- **Database**: `chat_sessions` and `chat_messages` tables with RLS policies
+- **Mock Service**: `lib/chatService.ts` - Returns placeholder responses
+
+### Step 1: Create Backend API Endpoint
+Create a Next.js API route to handle chat requests:
+
+```typescript
+// app/api/chat/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
+import Anthropic from '@anthropic-ai/sdk'
+
+export async function POST(request: NextRequest) {
+  // 1. Authenticate user
+  // 2. Get message and company ID from request
+  // 3. Fetch company financial data from Supabase
+  // 4. Call Claude API with context
+  // 5. Save response to database
+  // 6. Return response
+}
+```
+
+### Step 2: Install and Configure Anthropic SDK
+```bash
+cd balance-sheets-frontend
+npm install @anthropic-ai/sdk
+```
+
+Add to `.env.local`:
+```
+ANTHROPIC_API_KEY=your-api-key-here
+```
+
+### Step 3: Implement Context Injection
+Fetch and format company data for Claude:
+
+```typescript
+async function getCompanyContext(companyId: number) {
+  // Fetch from Supabase:
+  // - Company info (name, sector)
+  // - Historical financials (10 years)
+  // - Current metrics (P/E, P/B, ROE)
+  // - Market data
+  
+  return {
+    company: { name, sector, ticker },
+    financials: historicalData,
+    metrics: currentMetrics,
+    marketCap: currentMarketCap
+  }
+}
+```
+
+### Step 4: Create Claude System Prompt
+```typescript
+const SYSTEM_PROMPT = `You are a financial analyst helping users understand company financials. 
+You have access to 10 years of financial data including balance sheets, income statements, 
+and cash flow statements. Provide insightful analysis about trends, ratios, and financial health.
+Be concise but thorough. If you notice concerning trends, mention them objectively.`
+```
+
+### Step 5: Update Chat Component
+Replace the mock implementation in `Chat.tsx`:
+
+```typescript
+// Instead of setTimeout mock:
+const response = await fetch('/api/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    message: userMessage.content,
+    companyId,
+    sessionId
+  })
+})
+const data = await response.json()
+```
+
+### Step 6: Error Handling & Rate Limiting
+- Handle API errors gracefully
+- Implement rate limiting per user
+- Add retry logic for transient failures
+- Stream responses for better UX (optional)
+
+### Step 7: Testing & Monitoring
+- Test with various financial questions
+- Monitor API usage and costs
+- Log errors for debugging
+- Add analytics for popular questions
+
+### Implementation Order
+1. **First**: Create basic API endpoint with mock response
+2. **Second**: Add Anthropic SDK and test Claude integration
+3. **Third**: Implement company data fetching and context
+4. **Fourth**: Update frontend to use real API
+5. **Fifth**: Add error handling and rate limiting
+6. **Sixth**: Optimize with streaming and caching

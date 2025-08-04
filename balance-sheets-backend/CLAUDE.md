@@ -162,6 +162,113 @@ for ticker in SP500_TICKERS:
    - Add error recovery and progress tracking
    - Consider caching unchanged data
 
+## SEC 10-K Document Management (Updated Approach)
+
+### Overview
+The system has been simplified to store 10-K documents in Supabase Storage for future vector database processing. No complex parsing is done - documents are stored as-is for flexible processing later.
+
+### Current Implementation
+
+#### 1. Document Tracking Schema
+```sql
+CREATE TABLE documents (
+    id SERIAL PRIMARY KEY,
+    company_id INTEGER REFERENCES companies(id) ON DELETE CASCADE,
+    document_type VARCHAR(20) DEFAULT '10-K',
+    fiscal_year INTEGER,
+    filing_date DATE,
+    sec_url TEXT,
+    local_filename TEXT,
+    storage_url TEXT,     -- Supabase Storage URL
+    file_size_bytes BIGINT,
+    file_hash VARCHAR(64),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(company_id, document_type, fiscal_year)
+);
+```
+
+#### 2. Fetching 10-K Documents
+```python
+from sec_edgar_fetcher import SECEdgarFetcher
+
+fetcher = SECEdgarFetcher()
+# Downloads latest 10-K HTML from SEC EDGAR
+filename = fetcher.download_10k('MSFT')  # Returns: MSFT_10K_2025-07-30.html
+```
+
+#### 3. Uploading to Supabase Storage
+```python
+from upload_to_supabase_storage import upload_10k_files
+
+# Uploads all documents to Supabase Storage bucket '10k-reports'
+upload_10k_files()
+# Files accessible at: https://[project].supabase.co/storage/v1/object/public/10k-reports/[ticker]_[year]_10K.html
+```
+
+### Current Status
+
+- ✅ 12 companies' 10-K documents downloaded and stored
+- ✅ All documents uploaded to Supabase Storage (43.5 MB total)
+- ✅ Public URLs stored in database for easy access
+- ✅ Simple schema ready for vector database integration
+- ❌ No complex parsing - documents stored as raw HTML
+
+### Accessing Documents
+
+```python
+# Get document URLs from database
+from database import Database
+db = Database()
+
+with db.get_connection() as conn:
+    with conn.cursor() as cur:
+        cur.execute("""
+            SELECT c.ticker, d.storage_url 
+            FROM documents d
+            JOIN companies c ON d.company_id = c.id
+            WHERE c.ticker = 'MSFT'
+        """)
+        ticker, url = cur.fetchone()
+        # url: https://swzxvzamkqdtlbdadfxw.supabase.co/storage/v1/object/public/10k-reports/MSFT_2024_10K.html
+```
+
+### Vector Database Integration (Next Steps)
+
+When ready to implement vector search:
+
+1. **Extract Text from HTML**
+   ```python
+   # Simple text extraction from stored HTML
+   from bs4 import BeautifulSoup
+   
+   response = requests.get(storage_url)
+   soup = BeautifulSoup(response.text, 'html.parser')
+   text = soup.get_text()
+   ```
+
+2. **Chunk Text**
+   ```python
+   # Split into overlapping chunks for embeddings
+   chunk_size = 1500
+   overlap = 200
+   chunks = create_overlapping_chunks(text, chunk_size, overlap)
+   ```
+
+3. **Generate Embeddings & Store**
+   ```python
+   # Using pgvector
+   embeddings = openai.Embedding.create(input=chunks, model="text-embedding-ada-002")
+   # Store in document_chunks table with pgvector
+   ```
+
+### Storage Cost Estimates
+
+For 5,000 companies × 10 years:
+- **Blob Storage**: ~$4.14/month (197 GB)
+- **Vector Database**: ~$11.91/month (95 GB)
+- **Total**: ~$16/month
+- **One-time embedding cost**: ~$125 (OpenAI)
+
 ## Common Issues and Solutions
 
 1. **psycopg2 installation fails**: Use psycopg2-binary==2.9.10 for Python 3.13 support
@@ -169,6 +276,7 @@ for ticker in SP500_TICKERS:
 3. **"Wrong password" errors**: Check if using Session pooler format with correct credentials
 4. **API returns less historical data**: Free tier limitation - only returns 5 years
 5. **Rate limit hit when batch processing**: Implement daily limits and progress tracking
+6. **10-K parsing issues**: MD&A section may need special handling due to document structure
 
 ## Frontend Integration Guide
 
