@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
+import { chatService } from '@/lib/chatService'
 
 interface ChatProps {
   companyName: string
@@ -109,17 +110,19 @@ export function Chat({ companyName, companyId }: ChatProps) {
       return
     }
 
-    // Mock response for now - replace with actual API call later
-    setTimeout(async () => {
-      const mockResponse: ChatMessage = {
-        id: (Date.now() + 1).toString(),
-        role: 'assistant',
-        content: `This is a mock response about ${companyName}. In the future, this will be Claude analyzing the financial data and answering your questions.`,
-        timestamp: new Date()
-      }
-      setMessages(prev => [...prev, mockResponse])
-      setIsLoading(false)
+    // Call the chat API
+    try {
+      const response = await chatService.sendMessage({
+        message: userMessage.content,
+        companyContext: {
+          id: companyId,
+          name: companyName
+        },
+        sessionId: sessionId.toString()
+      })
 
+      setMessages(prev => [...prev, response.message])
+      
       // Save assistant message to database
       try {
         await supabase
@@ -127,12 +130,24 @@ export function Chat({ companyName, companyId }: ChatProps) {
           .insert({
             session_id: sessionId,
             role: 'assistant',
-            content: mockResponse.content
+            content: response.message.content
           })
-      } catch (error) {
-        console.error('Error saving assistant message:', error)
+      } catch (dbError) {
+        console.error('Error saving assistant message:', dbError)
       }
-    }, 1000)
+    } catch (error) {
+      console.error('Error calling chat API:', error)
+      // Add error message to chat
+      const errorMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: error instanceof Error ? error.message : 'Sorry, I encountered an error. Please try again.',
+        timestamp: new Date()
+      }
+      setMessages(prev => [...prev, errorMessage])
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (

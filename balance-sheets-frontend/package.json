@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.57.0",
     "@react-spring/web": "^10.0.1",
     "@supabase/supabase-js": "^2.53.0",
     "@types/node": "^24.1.0",

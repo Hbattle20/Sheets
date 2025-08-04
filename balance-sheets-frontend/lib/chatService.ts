@@ -7,37 +7,77 @@ interface ChatRequest {
     name: string
     financialData?: any
   }
+  sessionId?: string
 }
 
 interface ChatResponse {
   message: ChatMessage
 }
 
-// This service can be easily swapped to call your backend API later
 export const chatService = {
-  // Mock implementation for now
   async sendMessage(request: ChatRequest): Promise<ChatResponse> {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Mock response
-    const mockResponse: ChatMessage = {
-      id: Date.now().toString(),
-      role: 'assistant',
-      content: `[Mock Response] Analyzing ${request.companyContext.name}... ${request.message}`,
-      timestamp: new Date()
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: request.message,
+          companyId: request.companyContext.id,
+          companyName: request.companyContext.name,
+          financialData: request.companyContext.financialData,
+          sessionId: request.sessionId || 'default'
+        })
+      })
+      
+      if (!response.ok) {
+        // Handle specific error cases
+        if (response.status === 429) {
+          throw new Error('Too many requests. Please try again later.')
+        }
+        if (response.status === 401) {
+          throw new Error('Please sign in to use the chat feature.')
+        }
+        if (response.status === 500) {
+          throw new Error('Server error. Please try again later.')
+        }
+        
+        // Generic error for other status codes
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || `Request failed with status ${response.status}`)
+      }
+      
+      const data = await response.json()
+      
+      // Ensure the response has the expected structure
+      if (!data.message || !data.message.id || !data.message.content) {
+        throw new Error('Invalid response format from server')
+      }
+      
+      // Convert timestamp string to Date object if needed
+      if (typeof data.message.timestamp === 'string') {
+        data.message.timestamp = new Date(data.message.timestamp)
+      }
+      
+      return {
+        message: {
+          id: data.message.id,
+          role: data.message.role || 'assistant',
+          content: data.message.content,
+          timestamp: data.message.timestamp
+        }
+      }
+    } catch (error) {
+      // Log error for debugging
+      console.error('Chat service error:', error)
+      
+      // Re-throw with a user-friendly message if it's not already an Error
+      if (error instanceof Error) {
+        throw error
+      } else {
+        throw new Error('Failed to send message. Please try again.')
+      }
     }
-    
-    return { message: mockResponse }
-  },
-
-  // Future implementation will look like:
-  // async sendMessage(request: ChatRequest): Promise<ChatResponse> {
-  //   const response = await fetch('http://localhost:8000/api/chat', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(request)
-  //   })
-  //   return response.json()
-  // }
+  }
 }
