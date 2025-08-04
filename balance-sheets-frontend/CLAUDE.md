@@ -269,3 +269,53 @@ export const mockCompany = {
 4. **Validate financial calculations** match backend
 5. **Test on actual mobile devices** for input experience
 6. **Prevent users from inspecting network requests** to see actual market cap
+
+## Claude Chat Integration (Implemented)
+
+### Overview
+The chat feature is now fully integrated with Claude AI and provides contextual analysis based on actual 10-K filings stored in our vector database.
+
+### Architecture
+```
+Frontend Chat UI → Next.js API Route (/api/chat) → Vector Database (Supabase pgvector) → Claude API
+```
+
+### Data Available
+- **5 years of Microsoft 10-K filings** (2021-2025) processed into 329 searchable chunks
+- **3072-dimensional embeddings** using OpenAI's text-embedding-3-large model
+- **All standard 10-K sections** including Business, Risk Factors, MD&A, Financial Statements
+
+### API Endpoint: `/app/api/chat/route.ts`
+The endpoint:
+1. Receives user message and company context
+2. Generates embedding for the question using OpenAI
+3. Searches relevant 10-K chunks using vector similarity (top 20 chunks)
+4. Falls back to keyword search if needed
+5. Sends context + question to Claude 3.5 Sonnet
+6. Returns informed analysis based on actual filings
+
+### Environment Variables Required
+```bash
+# In .env.local (server-side only, no NEXT_PUBLIC prefix)
+ANTHROPIC_API_KEY=sk-ant-...
+OPENAI_API_KEY=sk-proj-...  # For embedding generation
+```
+
+### Example Queries That Work Well
+- "How has Microsoft's cloud revenue grown over the past 5 years?"
+- "What are the main cybersecurity risks Microsoft faces?"
+- "Compare Microsoft's R&D spending trends from 2021 to 2025"
+- "What acquisitions has Microsoft made recently?"
+- "Analyze Microsoft's debt-to-equity ratio changes"
+
+### Current Limitations
+- Only Microsoft data loaded (can add more companies)
+- 10-K annual reports only (can add 10-Q quarterly reports)
+- No real-time data (only up to filing dates)
+
+### Future Enhancements
+1. **Add more companies**: Process S&P 500 companies
+2. **Add 10-Q reports**: Quarterly updates for more recent data
+3. **Add 8-K filings**: Major events and earnings announcements
+4. **Improve chunking**: Better handling of tables and financial data
+5. **Add streaming**: Stream Claude's responses for better UX

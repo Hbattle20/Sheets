@@ -118,10 +118,16 @@ export function Chat({ companyName, companyId }: ChatProps) {
           id: companyId,
           name: companyName
         },
-        sessionId: sessionId.toString()
+        sessionId: sessionId.toString(),
+        conversationDepth: messages.length
       })
 
       setMessages(prev => [...prev, response.message])
+      
+      // Log debug information if present
+      if (response.debug) {
+        console.log('Chat debug info:', response.debug)
+      }
       
       // Save assistant message to database
       try {

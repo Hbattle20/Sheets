@@ -8,10 +8,15 @@ interface ChatRequest {
     financialData?: any
   }
   sessionId?: string
+  conversationDepth?: number
 }
 
 interface ChatResponse {
   message: ChatMessage
+  debug?: {
+    conversationDepth?: number
+    [key: string]: any
+  }
 }
 
 export const chatService = {
@@ -27,7 +32,8 @@ export const chatService = {
           companyId: request.companyContext.id,
           companyName: request.companyContext.name,
           financialData: request.companyContext.financialData,
-          sessionId: request.sessionId || 'default'
+          sessionId: request.sessionId || 'default',
+          conversationDepth: request.conversationDepth || 0
         })
       })
       
@@ -66,7 +72,8 @@ export const chatService = {
           role: data.message.role || 'assistant',
           content: data.message.content,
           timestamp: data.message.timestamp
-        }
+        },
+        debug: data.debug
       }
     } catch (error) {
       // Log error for debugging
