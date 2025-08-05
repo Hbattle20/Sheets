@@ -12,7 +12,6 @@ async function fetchCompanyData(company: any): Promise<GameCompany | null> {
       .order('period_end_date', { ascending: false })
 
     if (snapshotError || !allSnapshots || allSnapshots.length === 0) {
-      console.error('Error fetching snapshots:', snapshotError)
       return null
     }
 
@@ -26,7 +25,6 @@ async function fetchCompanyData(company: any): Promise<GameCompany | null> {
       .single()
 
     if (marketError || !marketData) {
-      console.error('Error fetching market data:', marketError)
       return null
     }
 
@@ -39,7 +37,6 @@ async function fetchCompanyData(company: any): Promise<GameCompany | null> {
       .single()
 
     if (metricsError || !metrics) {
-      console.error('Error fetching metrics:', metricsError)
       return null
     }
 
@@ -71,7 +68,6 @@ async function fetchCompanyData(company: any): Promise<GameCompany | null> {
       })
     }
 
-    console.log('Built historical data:', historicalData)
 
     // Transform the data to match our GameCompany interface
     const gameCompany: GameCompany = {
@@ -98,7 +94,6 @@ async function fetchCompanyData(company: any): Promise<GameCompany | null> {
 
     return gameCompany
   } catch (error) {
-    console.error('Error fetching company data:', error)
     return null
   }
 }
@@ -113,13 +108,11 @@ export async function getCompanyById(companyId: number): Promise<GameCompany | n
       .single()
     
     if (companyError || !company) {
-      console.error('Error fetching company:', companyError)
       return null
     }
 
     return await fetchCompanyData(company)
   } catch (error) {
-    console.error('Error in getCompanyById:', error)
     return null
   }
 }
@@ -132,7 +125,6 @@ export async function getRandomCompany(difficulty?: number): Promise<GameCompany
       .select('*')
     
     if (companiesError || !companies || companies.length === 0) {
-      console.error('Error fetching companies:', companiesError)
       return null
     }
 
@@ -153,7 +145,6 @@ export async function getRandomCompany(difficulty?: number): Promise<GameCompany
 
     return gameCompany
   } catch (error) {
-    console.error('Error in getRandomCompany:', error)
     return null
   }
 }

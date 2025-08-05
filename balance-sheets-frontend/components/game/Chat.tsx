@@ -105,7 +105,6 @@ export function Chat({ companyName, companyId }: ChatProps) {
           content: userMessage.content
         })
     } catch (error) {
-      console.error('Error saving message:', error)
       setIsLoading(false)
       return
     }
@@ -124,10 +123,7 @@ export function Chat({ companyName, companyId }: ChatProps) {
 
       setMessages(prev => [...prev, response.message])
       
-      // Log debug information if present
-      if (response.debug) {
-        console.log('Chat debug info:', response.debug)
-      }
+      // Debug information available in response.debug if needed
       
       // Save assistant message to database
       try {
@@ -139,10 +135,9 @@ export function Chat({ companyName, companyId }: ChatProps) {
             content: response.message.content
           })
       } catch (dbError) {
-        console.error('Error saving assistant message:', dbError)
+        // Error saving assistant message
       }
     } catch (error) {
-      console.error('Error calling chat API:', error)
       // Add error message to chat
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),

@@ -147,7 +147,6 @@ export async function POST(request: NextRequest) {
       .single()
 
     if (companyError || !company) {
-      console.error('Error fetching company:', companyError)
       return NextResponse.json(
         { error: 'Company not found' },
         { status: 404 }
@@ -166,7 +165,6 @@ export async function POST(request: NextRequest) {
       .limit(10) // Get last 10 periods
 
     if (financialError || !financialData || financialData.length === 0) {
-      console.error('Error fetching financial data:', financialError)
       return NextResponse.json(
         { error: 'Could not retrieve financial data' },
         { status: 500 }
@@ -214,7 +212,6 @@ export async function POST(request: NextRequest) {
 
     // Step 3: Add vector search for 10-K document chunks
     let relevantChunks: any[] = []
-    let vectorSearchUsed = false
 
     try {
       // Generate embedding for the user's question
@@ -246,8 +243,6 @@ export async function POST(request: NextRequest) {
 
         if (!searchError && vectorChunks && vectorChunks.length > 0) {
           relevantChunks = vectorChunks
-          vectorSearchUsed = true
-          console.log(`Found ${vectorChunks.length} relevant chunks using vector search`)
           
           // Add 10-K context to the existing context
           context += `\n\nRelevant excerpts from 10-K filings:\n\n`
@@ -267,12 +262,11 @@ export async function POST(request: NextRequest) {
         }
       }
     } catch (error) {
-      console.log('Vector search not available, using fallback:', error)
+      // Vector search not available, using fallback
     }
 
     // Fallback: Use keyword search if vector search didn't work
     if (relevantChunks.length < 5) {
-      console.log('Using keyword search fallback...')
       
       // Extract keywords from message
       const keywords = message.toLowerCase()
@@ -305,7 +299,6 @@ export async function POST(request: NextRequest) {
             const year = new Date(chunk.filing_date).getFullYear()
             context += `[${year} - ${chunk.section}]\n${chunk.text}\n\n---\n\n`
           }
-          console.log(`Added ${keywordChunks.length} chunks from keyword search`)
         }
       }
     }
@@ -319,8 +312,6 @@ export async function POST(request: NextRequest) {
     const conversationDepth = body.conversationDepth || 0
     const modelSelection = determineModelComplexity(message, relevantChunks, conversationDepth)
     
-    console.log(`Model Selection: ${modelSelection.model} - Reason: ${modelSelection.reason}`)
-    console.log(`Chunks found: ${relevantChunks.length}, Conversation depth: ${conversationDepth}`)
     
     // Step 4: Call Claude API with context
     const response = await anthropic.messages.create({
@@ -341,9 +332,6 @@ export async function POST(request: NextRequest) {
       ? response.content[0].text 
       : 'I apologize, but I was unable to generate a response.'
 
-    // Log token usage and model for monitoring
-    console.log(`Token usage - Input: ${response.usage?.input_tokens}, Output: ${response.usage?.output_tokens}`)
-    console.log(`Model used: ${modelSelection.model}`)
 
     // Return the response in the expected format
     return NextResponse.json({
@@ -367,7 +355,6 @@ export async function POST(request: NextRequest) {
     })
 
   } catch (error) {
-    console.error('Chat API error:', error)
     
     // Handle specific error types
     if (error instanceof Anthropic.APIError) {

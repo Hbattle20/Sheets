@@ -41,25 +41,17 @@ export default function CompanyCard({ company }: CompanyCardProps) {
       try {
         const match = JSON.parse(savedPendingMatch)
         setPendingMatch(match)
-        console.log('Found pending match in localStorage:', match)
       } catch (e) {
-        console.error('Error parsing pending match:', e)
+        // Error parsing pending match
       }
     }
   }, [])
 
   // Watch for authentication changes when waiting
   useEffect(() => {
-    console.log('Auth state check:', { 
-      previousUser: previousUser?.id, 
-      currentUser: user?.id, 
-      waitingForAuth,
-      isNewUser: !previousUser && !!user
-    })
     
     // Check if user just signed in (was null, now has value)
     if (!previousUser && user && (waitingForAuth || pendingMatch)) {
-      console.log('User authenticated, saving match...', { waitingForAuth, pendingMatch })
       
       // User just authenticated, save the match to database
       const saveMatch = async () => {
@@ -90,15 +82,12 @@ export default function CompanyCard({ company }: CompanyCardProps) {
                 percentage_diff: ((matchData.guess - matchData.actualMarketCap) / matchData.actualMarketCap) * 100,
               })
               
-            if (error) {
-              console.error('Error saving match after authentication:', error)
-            } else {
-              console.log('Match saved successfully!')
+            if (!error) {
               // Clear from localStorage after successful save
               localStorage.removeItem('pendingMatch')
             }
           } catch (error) {
-            console.error('Error saving match after authentication:', error)
+            // Error saving match after authentication
           }
         }
       }

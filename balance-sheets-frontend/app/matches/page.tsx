@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useGameStore } from '@/stores/gameStore'
 import { useAuth } from '@/contexts/AuthContext'
 import { supabase } from '@/lib/supabase'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
@@ -28,7 +27,6 @@ interface DatabaseMatch {
 }
 
 export default function MatchesPage() {
-  const { savedMatches: localMatches } = useGameStore()
   const { user } = useAuth()
   const router = useRouter()
   const [matches, setMatches] = useState<any[]>([])
@@ -67,7 +65,6 @@ export default function MatchesPage() {
           .order('created_at', { ascending: false })
 
         if (error) {
-          console.error('Error loading matches:', error)
           setMatches([])
         } else {
           // Transform database matches to match local format
@@ -96,7 +93,6 @@ export default function MatchesPage() {
           setMatches(transformedMatches)
         }
       } catch (error) {
-        console.error('Error loading matches:', error)
         setMatches([])
       }
       

@@ -15,9 +15,11 @@ SUPABASE_KEY = os.getenv('SUPABASE_KEY')
 DATABASE_URL = os.getenv('DATABASE_URL')  # Direct connection string from Supabase
 
 # API Rate Limiting
-FMP_RATE_LIMIT_PER_DAY = 250  # Free tier limit
+FMP_RATE_LIMIT_PER_MINUTE = 750  # Premium tier: 750 calls/minute
+FMP_RATE_LIMIT_PER_DAY = 1000000  # Premium tier: effectively unlimited
 FMP_RETRY_ATTEMPTS = 3
 FMP_RETRY_DELAY = 1  # seconds
+FMP_CALLS_PER_BATCH = 700  # Stay under 750/min limit with buffer
 
 # Logging
 LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')

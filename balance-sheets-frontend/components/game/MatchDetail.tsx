@@ -37,8 +37,7 @@ export default function MatchDetail({ match }: MatchDetailProps) {
           }
           setLoading(false)
         })
-        .catch(error => {
-          console.error('Error fetching company data:', error)
+        .catch(() => {
           setLoading(false)
         })
     }

@@ -90,7 +90,7 @@ export const useGameStore = create<GameStore>()(
                     percentage_diff: percentageDiff,
                   })
               } catch (error) {
-                console.error('Error saving match to database:', error)
+                // Error saving match to database
               }
             }
           }

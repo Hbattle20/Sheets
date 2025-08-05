@@ -49,11 +49,12 @@ class HistoricalDataPipeline(DataPipeline):
             api_calls_needed = years * 3
         
         # Check rate limit
-        calls_today = self.db.get_api_calls_today()
-        if calls_today + api_calls_needed > 250:
-            logger.warning(f"Would exceed rate limit. Current: {calls_today}, Needed: {api_calls_needed}")
-            logger.warning(f"Can only fetch {(250 - calls_today) // 2} more periods today")
-            return False
+        # Skip rate limit check for premium tier - handled by the fast collector
+        # calls_today = self.db.get_api_calls_today()
+        # if calls_today + api_calls_needed > 250:
+        #     logger.warning(f"Would exceed rate limit. Current: {calls_today}, Needed: {api_calls_needed}")
+        #     logger.warning(f"Can only fetch {(250 - calls_today) // 2} more periods today")
+        #     return False
         
         logger.info(f"Estimated API calls needed: {api_calls_needed}")
         

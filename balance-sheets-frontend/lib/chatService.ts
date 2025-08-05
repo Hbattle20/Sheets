@@ -76,9 +76,6 @@ export const chatService = {
         debug: data.debug
       }
     } catch (error) {
-      // Log error for debugging
-      console.error('Chat service error:', error)
-      
       // Re-throw with a user-friendly message if it's not already an Error
       if (error instanceof Error) {
         throw error
