@@ -74,7 +74,6 @@ export default function RevealAnimation({ company, guess, onComplete }: RevealAn
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
                 <p className="text-2xl font-bold mb-1">NO MATCH ✗</p>
                 <p>You guessed {percentDiff.toFixed(1)}% below the actual market cap</p>
-                <p className="text-sm mt-1">Remember: You need to guess ≥ the actual to match!</p>
               </div>
             )}
           </animated.div>
