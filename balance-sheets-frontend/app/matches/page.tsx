@@ -62,6 +62,7 @@ export default function MatchesPage() {
             )
           `)
           .eq('user_id', user.id)
+          .eq('is_match', true)
           .order('created_at', { ascending: false })
 
         if (error) {
