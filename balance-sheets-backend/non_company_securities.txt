@@ -1,0 +1,1496 @@
+Non-Company Securities in Database
+================================================================================
+
+Bonds/Notes: 8 entries
+------------------------------------------------------------
+   370 | BKD        | Brookdale Senior Living Inc.
+   753 | PFLT       | PennantPark Floating Rate Capital Ltd.
+  1043 | SNDA       | Sonida Senior Living, Inc.
+  7034 | MHLA       | Maiden Holdings, Ltd. 6.625 NT 2046
+  9620 | LWSCF      | Sienna Senior Living Inc.
+ 11293 | WBNEF      | WestBond Enterprises Corporation
+ 12341 | SNIRF      | Senior plc
+ 12421 | CBNT       | C-Bond Systems, Inc.
+
+Depositary: 12 entries
+------------------------------------------------------------
+  3021 | CHA        | Chagee Holdings Limited American Depositary Shares
+  3316 | ANL        | Adlai Nortye Ltd. American Depositary Shares
+  3347 | YB         | Yuanbao Inc. American Depositary Shares
+  3465 | TURB       | Turbo Energy, S.A. American Depositary Shares
+  3507 | YOUL       | Youlife Group Inc. American Depositary Shares
+  3837 | NWGL       | Nature Wood Group Limited American Depositary Shares
+  4299 | LOT        | Lotus Technology Inc. American Depositary Shares
+  4395 | SCAG       | Scage Future American Depositary Shares
+  4397 | LRE        | Lead Real Estate Co., Ltd American Depositary Shares
+  4711 | WYHG       | Wing Yip Food Holdings Group Limited American Depositary Shares
+  4808 | XCH        | XCHG Limited American Depositary Share
+  4993 | NAMI       | Jinxin Technology Holding Company American Depositary Shares
+
+Preferred: 203 entries
+------------------------------------------------------------
+    51 | COF-PJ     | Capital One Financial Corporation
+    56 | SPNT-PB    | SiriusPoint Ltd.
+   114 | BAC-PE     | Bank of America Corporation
+   216 | BAC-PO     | Bank of America Corporation
+   250 | AXS-PE     | AXIS Capital Holdings Limited
+   256 | TEN-PE     | Tsakos Energy Navigation Limited
+   257 | CADE-PA    | Cadence Bank
+   467 | NREF-PA    | NexPoint Real Estate Finance, Inc.
+   487 | CODI-PC    | Compass Diversified
+   532 | MET-PE     | MetLife, Inc.
+   548 | RNR-PG     | RenaissanceRe Holdings Ltd.
+   564 | BAC-PL     | Bank of America Corporation
+   565 | BAC-PK     | Bank of America Corporation
+   600 | JPM-PC     | JPMorgan Chase & Co.
+   663 | ALL-PH     | The Allstate Corporation
+   725 | BAC-PB     | Bank of America Corporation
+   729 | ATH-PE     | Athene Holding Ltd.
+   738 | AHL-PE     | Aspen Insurance Holdings Limited
+   842 | EQH-PA     | Equitable Holdings, Inc.
+   927 | JPM-PJ     | JPMorgan Chase & Co.
+   934 | JPM-PM     | JPMorgan Chase & Co.
+   955 | SYF-PA     | Synchrony Financial
+   983 | HPP-PC     | Hudson Pacific Properties, Inc.
+  1132 | JXN-PA     | Jackson Financial Inc.
+  1248 | LNC-PD     | Lincoln National Corporation
+  1357 | RNR-PF     | RenaissanceRe Holdings Ltd.
+  1367 | OAK-PB     | Oaktree Capital Group, LLC
+  1426 | CODI-PB    | Compass Diversified
+  1434 | WFC-PY     | Wells Fargo & Company
+  1503 | TDS-PV     | Telephone and Data Systems, Inc.
+  1509 | PBI-PB     | Pitney Bowes Inc. NT 43
+  1662 | CTA-PB     | E. I. du Pont de Nemours and Company
+  1683 | ADC-PA     | Agree Realty Corporation
+  1687 | RITM-PA    | Rithm Capital Corp.
+  1706 | PSA-PQ     | Public Storage
+  1715 | BAC-PS     | Bank of America Corporation
+  1762 | EQH-PC     | Equitable Holdings, Inc.
+  1841 | JPM-PK     | JPMorgan Chase & Co.
+  1852 | JPM-PD     | JPMorgan Chase & Co.
+  1861 | SCHW-PJ    | The Charles Schwab Corporation
+  1877 | TFC-PI     | Truist Financial Corporation
+  1878 | WFC-PA     | Wells Fargo & Company
+  5656 | ASB-PF     | Associated Banc-Corp
+  5664 | WCC-PA     | WESCO International, Inc.
+  5673 | KEY-PL     | KeyCorp
+  5674 | SYF-PB     | Synchrony Financial
+  5676 | JPM-PL     | JPMorgan Chase & Co.
+  5680 | IVR-PC     | Invesco Mortgage Capital Inc.
+  5683 | CFR-PB     | Cullen/Frost Bankers, Inc.
+  5690 | ALTG-PA    | Alta Equipment Group Inc.
+  5694 | REXR-PC    | Rexford Industrial Realty, Inc.
+  5695 | AHL-PD     | Aspen Insurance Holdings Limited
+  5697 | AGM-PG     | Federal Agricultural Mortgage Corporation
+  5702 | CIM-PA     | Chimera Investment Corporation
+  5707 | MTB-PJ     | M&T Bank Corporation
+  5710 | SNV-PE     | Synovus Financial Corp.
+  5714 | PSA-PL     | Public Storage
+  5718 | MET-PA     | MetLife, Inc.
+  5724 | CUBI-PE    | Customers Bancorp, Inc.
+  5737 | CNO-PA     | CNO Financial Group, Inc. 5.125
+  5746 | BAC-PQ     | Bank of America Corporation
+  5751 | ATCO-PH    | Atlas Corp.
+  5753 | NLY-PF     | Annaly Capital Management, Inc.
+  5758 | CODI-PA    | Compass Diversified
+  5762 | COF-PI     | Capital One Financial Corporation
+  5767 | RITM-PB    | Rithm Capital Corp.
+  5770 | MET-PF     | MetLife, Inc.
+  5772 | CFG-PE     | Citizens Financial Group, Inc.
+  5778 | KIM-PM     | Kimco Realty Corporation
+  5785 | BANC-PF    | Banc of California, Inc.
+  5786 | DBRG-PI    | DigitalBridge Group, Inc.
+  5787 | CIM-PC     | Chimera Investment Corporation
+  5788 | WFC-PD     | Wells Fargo & Company
+  5808 | NLY-PI     | Annaly Capital Management, Inc.
+  5842 | FHN-PE     | First Horizon Corporation
+  5844 | DBRG-PJ    | DigitalBridge Group, Inc.
+  5846 | GAM-PB     | General American Investors Company, Inc.
+  5848 | BHR-PB     | Braemar Hotels & Resorts Inc.
+  5849 | MFA-PB     | MFA Financial, Inc.
+  5852 | FHN-PC     | First Horizon Corporation
+  5855 | PSA-PF     | Public Storage
+  5856 | PSA-PH     | Public Storage
+  5875 | ASB-PE     | Associated Banc-Corp
+  5876 | ALL-PI     | The Allstate Corporation
+  5877 | CFG-PH     | Citizens Financial Group, Inc.
+  5878 | NEE-PN     | NextEra Energy, Inc. Series N J
+  5883 | SCHW-PD    | The Charles Schwab Corporation
+  5888 | MTB-PH     | M&T Bank Corporation
+  5889 | BFS-PE     | Saul Centers, Inc.
+  5894 | ATH-PA     | Athene Holding Ltd.
+  5896 | ICR-PA     | Inpoint Commercial Real Estate Income, Inc.
+  5897 | ALL-PB     | The Allstate Corporation
+  5899 | PSA-PK     | Public Storage
+  5900 | PSA-PP     | Public Storage
+  5901 | KEY-PI     | KeyCorp
+  5902 | BAC-PN     | Bank of America Corporation
+  5906 | WFC-PZ     | Wells Fargo & Company
+  5912 | BAC-PM     | Bank of America Corporation
+  5913 | PSA-PG     | Public Storage
+  5927 | TFC-PO     | Truist Financial Corporation
+  5928 | ATH-PB     | Athene Holding Ltd.
+  5930 | EPR-PC     | EPR Properties
+  5931 | AMH-PG     | American Homes 4 Rent
+  5932 | PSA-PJ     | Public Storage
+  5939 | CIM-PD     | Chimera Investment Corporation
+  5954 | KEY-PK     | KeyCorp
+  5956 | CIM-PB     | Chimera Investment Corporation
+  6006 | KEY-PJ     | KeyCorp
+  6010 | AHH-PA     | Armada Hoffler Properties, Inc.
+  6119 | PSA-PI     | Public Storage
+  6128 | PSA-PO     | Public Storage
+  6131 | COF-PN     | Capital One Financial Corporation
+  6134 | PSA-PM     | Public Storage
+  6142 | TWO-PB     | Two Harbors Investment Corp.
+  6154 | EPR-PG     | EPR Properties
+  6164 | VOYA-PB    | Voya Financial, Inc.
+  6167 | TWO-PC     | Two Harbors Investment Corp.
+  6169 | SHO-PH     | Sunstone Hotel Investors, Inc.
+  6174 | CMRE-PC    | Costamare Inc.
+  6192 | PSA-PS     | Public Storage
+  6195 | DRH-PA     | DiamondRock Hospitality Company
+  6208 | ECC-PD     | Eagle Point Credit Company Inc.
+  6217 | BAC-PP     | Bank of America Corporation
+  6228 | CTO-PA     | CTO Realty Growth, Inc.
+  6232 | SLG-PI     | SL Green Realty Corp.
+  6271 | GTLS-PB    | Chart Industries, Inc.
+  6277 | AGM-PE     | Federal Agricultural Mortgage Corporation
+  6287 | SHO-PI     | Sunstone Hotel Investors, Inc.
+  6298 | CMS-PC     | CMS Energy Corporation
+  6314 | RITM-PC    | Rithm Capital Corp.
+  6319 | PSA-PN     | Public Storage
+  6333 | ACR-PC     | ACRES Commercial Realty Corp.
+  6348 | COF-PL     | Capital One Financial Corporation
+  6349 | ACR-PD     | ACRES Commercial Realty Corp.
+  6354 | WAL-PA     | Western Alliance Bancorporation
+  6357 | MFA-PC     | MFA Financial, Inc.
+  6366 | INN-PF     | Summit Hotel Properties, Inc.
+  6378 | AMH-PH     | American Homes 4 Rent
+  6387 | SEAL-PB    | Seapeak LLC
+  6395 | FHN-PF     | First Horizon Corporation
+  6399 | DUK-PA     | Duke Energy Corporation
+  6409 | APO-PA     | Apollo Global Management, Inc.
+  6437 | BHR-PD     | Braemar Hotels & Resorts Inc.
+  6454 | INN-PE     | Summit Hotel Properties, Inc.
+  6475 | WFC-PC     | Wells Fargo & Company
+  6482 | RITM-PD    | Rithm Capital Corp.
+  6497 | EPR-PE     | EPR Properties
+  6526 | EFC-PC     | Ellington Financial Inc.
+  6540 | UMH-PD     | UMH Properties, Inc.
+  6614 | MDV-PA     | Modiv Inc.
+  6623 | YCBD-PA    | cbdMD, Inc.
+  6693 | SNV-PD     | Synovus Financial Corp.
+  6709 | WBS-PF     | Webster Financial Corporation
+  6715 | ALL-PJ     | The Allstate Corporation
+  6724 | SEAL-PA    | Seapeak LLC
+  6727 | TRTN-PB    | Triton International Limited
+  6737 | WBS-PG     | Webster Financial Corporation
+  6759 | IIPR-PA    | Innovative Industrial Properties, Inc.
+  6773 | TRTN-PA    | Triton International Limited
+  6797 | DBRG-PH    | DigitalBridge Group, Inc.
+  6801 | GSL-PB     | Global Ship Lease, Inc.
+  6803 | PCG-PA     | Pacific Gas and Electric Company
+  6852 | TWO-PA     | Two Harbors Investment Corp.
+  6882 | GNL-PE     | Global Net Lease, Inc.
+  6888 | ARGO-PA    | Argo Group International Holdings, Ltd.
+  6898 | HIG-PG     | The Hartford Financial Services Group, Inc.
+  6989 | ATH-PD     | Athene Holding Ltd.
+  7016 | GNL-PD     | Global Net Lease, Inc.
+  7033 | KIM-PL     | Kimco Realty Corporation
+  7095 | AGM-PD     | Federal Agricultural Mortgage Corporation
+  7113 | TRTN-PE    | Triton International Limited
+  7116 | TRTN-PD    | Triton International Limited
+  7120 | SACH-PA    | Sachem Capital Corp.
+  7232 | TRTN-PC    | Triton International Limited
+  7238 | EFC-PB     | Ellington Financial Inc.
+  7242 | CUBI-PF    | Customers Bancorp, Inc.
+  7249 | CMRE-PB    | Costamare Inc.
+  7270 | NLY-PG     | Annaly Capital Management, Inc.
+  7277 | CHMI-PA    | Cherry Hill Mortgage Investment Corporation
+  7292 | PSEC-PA    | Prospect Capital Corporation
+  7294 | AGM-PF     | Federal Agricultural Mortgage Corporation
+  7299 | BOH-PA     | Bank of Hawaii Corporation
+  7305 | GRBK-PA    | Green Brick Partners, Inc.
+  7401 | CMRE-PD    | Costamare Inc.
+  7473 | COF-PK     | Capital One Financial Corporation
+  7527 | CMS-PB     | Consumers Energy Company
+  7614 | REXR-PB    | Rexford Industrial Realty, Inc.
+  7698 | PCG-PD     | Pacific Gas and Electric Company
+  7719 | PCG-PG     | Pacific Gas and Electric Company
+  7784 | RJF-PB     | Raymond James Financial, Inc.
+  8192 | CHMI-PB    | Cherry Hill Mortgage Investment Corporation
+  8283 | PCG-PH     | Pacific Gas and Electric Company
+  8287 | WFC-PL     | Wells Fargo & Company
+  8352 | EFC-PA     | Ellington Financial Inc.
+  8886 | SPG-PJ     | Simon Property Group, Inc.
+  9078 | PCG-PE     | Pacific Gas and Electric Company
+  9110 | CTA-PA     | E. I. du Pont de Nemours and Company
+  9113 | KIM-PN     | Kimco Realty Corporation
+  9127 | SRG-PA     | Seritage Growth Properties
+  9149 | BFS-PD     | Saul Centers, Inc.
+  9171 | EFC-PD     | Ellington Financial Inc.
+  9317 | PCG-PB     | Pacific Gas and Electric Company
+ 10067 | DSX-PB     | Diana Shipping Inc.
+
+Rights: 480 entries
+------------------------------------------------------------
+    21 | QSR        | Restaurant Brands International Inc.
+    24 | FVR        | FrontView REIT, Inc.
+    31 | NVR        | NVR, Inc.
+    36 | SMR        | NuScale Power Corporation
+    50 | AHR        | American Healthcare REIT, Inc.
+    52 | LOAR       | Loar Holdings Inc.
+    65 | FOUR       | Shift4 Payments, Inc.
+    69 | AOMR       | Angel Oak Mortgage, Inc.
+    75 | NEE-PR     | NextEra Energy, Inc.
+    95 | AIR        | AAR Corp.
+   111 | BLDR       | Builders FirstSource, Inc.
+   124 | AR         | Antero Resources Corporation
+   145 | PHR        | Phreesia, Inc.
+   149 | BFAM       | Bright Horizons Family Solutions Inc.
+   163 | LVWR       | LiveWire Group, Inc.
+   191 | MGR        | Affiliated Managers Group, Inc.
+   238 | EPR        | EPR Properties
+   239 | ENR        | Energizer Holdings, Inc.
+   249 | LADR       | Ladder Capital Corp
+   260 | DHR        | Danaher Corporation
+   282 | TPR        | Tapestry, Inc.
+   284 | ALUR       | Allurion Technologies Inc.
+   300 | DAR        | Darling Ingredients Inc.
+   306 | AMCR       | Amcor plc
+   308 | EBR        | Centrais Elétricas Brasileiras S.A. - Eletrobrás
+   313 | EQR        | Equity Residential
+   344 | AVTR       | Avantor, Inc.
+   408 | CR         | Crane Company
+   411 | UBER       | Uber Technologies, Inc.
+   415 | MTDR       | Matador Resources Company
+   430 | LAR        | Lithium Argentina AG
+   445 | FLR        | Fluor Corporation
+   457 | IIPR       | Innovative Industrial Properties, Inc.
+   515 | EQNR       | Equinor ASA
+   525 | R          | Ryder System, Inc.
+   536 | GFR        | Greenfire Resources Ltd.
+   541 | REXR       | Rexford Industrial Realty, Inc.
+   555 | EXR        | Extra Space Storage Inc.
+   558 | PWR        | Quanta Services, Inc.
+   581 | EVR        | Evercore Inc.
+   589 | NPWR       | NET Power Inc.
+   618 | CNR        | Core Natural Resources, Inc.
+   630 | AXR        | AMREP Corporation
+   678 | POR        | Portland General Electric Company
+   680 | SPIR       | Spire Global, Inc.
+   683 | KBR        | KBR, Inc.
+   694 | ACR        | ACRES Commercial Realty Corp.
+   705 | SR         | Spire Inc.
+   732 | ACHR       | Archer Aviation Inc.
+   746 | KWR        | Quaker Chemical Corporation
+   749 | BORR       | Borr Drilling Limited
+   766 | ETR        | Entergy Corporation
+   770 | ATR        | AptarGroup, Inc.
+   780 | PNR        | Pentair plc
+   788 | KMPR       | Kemper Corporation
+   800 | LXFR       | Luxfer Holdings PLC
+   801 | BRBR       | BellRing Brands, Inc.
+   820 | CLPR       | Clipper Realty Inc.
+   830 | XHR        | Xenia Hotels & Resorts, Inc.
+   856 | INR        | Infinity Natural Resources, Inc.
+   864 | IVR        | Invesco Mortgage Capital Inc.
+   873 | MLR        | Miller Industries, Inc.
+   904 | RNR        | RenaissanceRe Holdings Ltd.
+   907 | MUR        | Murphy Oil Corporation
+   911 | WOR        | Worthington Industries, Inc.
+   930 | XPER       | Xperi Inc.
+   942 | SEMR       | Semrush Holdings, Inc.
+   982 | AER        | AerCap Holdings N.V.
+   998 | BRSL       | Brightstar Lottery
+  1005 | TR         | Tootsie Roll Industries, Inc.
+  1018 | TKR        | The Timken Company
+  1040 | BR         | Broadridge Financial Solutions, Inc.
+  1041 | BRSP       | BrightSpire Capital, Inc.
+  1042 | CDLR       | Cadeler A/S
+  1072 | ASR        | Grupo Aeroportuario del Sureste, S. A. B. de C. V.
+  1081 | PCOR       | Procore Technologies, Inc.
+  1093 | WHR        | Whirlpool Corporation
+  1096 | RGR        | Sturm, Ruger & Company, Inc.
+  1097 | AWR        | American States Water Company
+  1122 | NXDR       | Nextdoor Holdings, Inc.
+  1128 | COUR       | Coursera, Inc.
+  1146 | BHR        | Braemar Hotels & Resorts Inc.
+  1153 | IR         | Ingersoll Rand Inc.
+  1181 | BSBR       | Banco Santander (Brasil) S.A.
+  1182 | ATKR       | Atkore Inc.
+  1188 | SPHR       | Sphere Entertainment Co.
+  1198 | COR        | Cencora, Inc.
+  1312 | SPR        | Spirit AeroSystems Holdings, Inc.
+  1324 | KKR        | KKR & Co. Inc.
+  1327 | KAR        | OPENLANE, Inc.
+  1343 | FOR        | Forestar Group Inc.
+  1348 | INGR       | Ingredion Incorporated
+  1349 | RNGR       | Ranger Energy Services, Inc.
+  1360 | VTR        | Ventas, Inc.
+  1380 | NJR        | New Jersey Resources Corporation
+  1383 | PR         | Permian Resources Corporation
+  1388 | THR        | Thermon Group Holdings, Inc.
+  1399 | PAR        | PAR Technology Corporation
+  1410 | NTR        | Nutrien Ltd.
+  1412 | OSCR       | Oscar Health, Inc.
+  1415 | SOR        | Source Capital, Inc.
+  1423 | AMR        | Alpha Metallurgical Resources, Inc.
+  1452 | EMR        | Emerson Electric Co.
+  1458 | PIPR       | Piper Sandler Companies
+  1469 | NBR        | Nabors Industries Ltd.
+  1476 | SAR        | Saratoga Investment Corp.
+  1517 | PGR        | The Progressive Corporation
+  1536 | CFR        | Cullen/Frost Bankers, Inc.
+  1586 | STR        | Sitio Royalties Corp.
+  1593 | PARR       | Par Pacific Holdings, Inc.
+  1601 | CSR        | Centerspace
+  1621 | FVRR       | Fiverr International Ltd.
+  1639 | BBAR       | Banco BBVA Argentina S.A.
+  1651 | CARR       | Carrier Global Corporation
+  1667 | COHR       | Coherent, Inc.
+  1679 | KR         | The Kroger Co.
+  1709 | BUR        | Burford Capital Limited
+  1719 | WTTR       | Select Energy Services, Inc.
+  1727 | BV         | BrightView Holdings, Inc.
+  1785 | UDR        | UDR, Inc.
+  1802 | SNDR       | Schneider National, Inc.
+  1818 | ITGR       | Integer Holdings Corporation
+  1833 | MIR        | Mirion Technologies, Inc.
+  1838 | GPOR       | Gulfport Energy Corporation
+  1850 | OR         | OR Royalties Inc.
+  1855 | NMR        | Nomura Holdings, Inc.
+  1864 | PBR        | Petróleo Brasileiro S.A. - Petrobras
+  1885 | AMBR       | Amber International Holding Ltd
+  1922 | MPWR       | Monolithic Power Systems, Inc.
+  1923 | MRKR       | Marker Therapeutics, Inc.
+  1925 | MSPR       | MSP Recovery, Inc.
+  1936 | LASR       | nLIGHT, Inc.
+  2007 | IBKR       | Interactive Brokers Group, Inc.
+  2015 | ETOR       | eToro Group Ltd.
+  2018 | CYBR       | CyberArk Software Ltd.
+  2069 | BAER       | Bridger Aerospace Group Holdings, Inc. Common Stock
+  2070 | ATER       | Aterian, Inc.
+  2073 | MSTR       | MicroStrategy Incorporated
+  2091 | FNGR       | FingerMotion, Inc.
+  2093 | CMPR       | Cimpress plc
+  2124 | CLAR       | Clarus Corporation
+  2131 | BKR        | Baker Hughes Company
+  2138 | HNVR       | Hanover Bancorp, Inc.
+  2144 | BETR       | Better Home & Finance Holding Company
+  2190 | DSGR       | Distribution Solutions Group, Inc.
+  2213 | EVER       | EverQuote, Inc.
+  2216 | VCTR       | Victory Capital Holdings, Inc.
+  2223 | FORR       | Forrester Research, Inc.
+  2257 | CHTR       | Charter Communications, Inc.
+  2268 | FER        | Ferrovial SE
+  2296 | INTR       | Inter & Co, Inc.
+  2314 | LAWR       | Robot Consulting Co., Ltd. ADS
+  2360 | ARWR       | Arrowhead Pharmaceuticals, Inc.
+  2368 | AEHR       | Aehr Test Systems
+  2391 | ATYR       | aTyr Pharma, Inc.
+  2399 | LAZR       | Luminar Technologies, Inc.
+  2403 | ACMR       | ACM Research, Inc.
+  2440 | AVIR       | Atea Pharmaceuticals, Inc.
+  2457 | EXTR       | Extreme Networks, Inc.
+  2529 | BRR        | Columbus Circle Capital Corp I Class A Ordinary Shares
+  2533 | BSRR       | Sierra Bancorp
+  2536 | CTOR       | Citius Oncology, Inc.
+  2543 | FTDR       | Frontdoor, Inc.
+  2558 | MTSR       | Metsera, Inc.
+  2559 | CTXR       | Citius Pharmaceuticals, Inc.
+  2578 | IPAR       | Inter Parfums, Inc.
+  2601 | FONR       | FONAR Corporation
+  2618 | KYMR       | Kymera Therapeutics, Inc.
+  2630 | GPCR       | Structure Therapeutics Inc.
+  2635 | GRRR       | Gorilla Technology Group Inc.
+  2656 | LAMR       | Lamar Advertising Company
+  2661 | CCIR       | Cohen Circle Acquisition Corp. I
+  2673 | AMKR       | Amkor Technology, Inc.
+  2676 | ISPR       | Ispire Technology Inc.
+  2704 | BRKR       | Bruker Corporation
+  2718 | BHF        | Brighthouse Financial, Inc.
+  2770 | IMMR       | Immersion Corporation
+  2798 | JSPR       | Jasper Therapeutics, Inc.
+  2828 | LTBR       | Lightbridge Corporation
+  2839 | SMLR       | Semler Scientific, Inc.
+  2877 | BTDR       | Bitdeer Technologies Group
+  2883 | DRUG       | Bright Minds Biosciences Inc.
+  2891 | CAPR       | Capricor Therapeutics, Inc.
+  2931 | FYBR       | Frontier Communications Parent, Inc.
+  2938 | LRMR       | Larimar Therapeutics, Inc.
+  2952 | JRVR       | James River Group Holdings, Ltd.
+  2964 | ALLR       | Allarity Therapeutics, Inc.
+  3002 | FSLR       | First Solar, Inc.
+  3005 | LAUR       | Laureate Education, Inc.
+  3028 | CIFR       | Cipher Mining Inc.
+  3032 | IOTR       | iOThree Limited Ordinary Shares
+  3051 | INCR       | InterCure Ltd.
+  3062 | BHFAN      | Brighthouse Financial, Inc.
+  3110 | EDHL       | Everbright Digital Holding Limited Ordinary Shares
+  3134 | MGYR       | Magyar Bancorp, Inc.
+  3137 | BKHAR      | Black Hawk Acquisition Corporation
+  3145 | BMR        | Beamr Imaging Ltd.
+  3146 | CLIR       | ClearSign Technologies Corporation
+  3160 | KLTR       | Kaltura, Inc.
+  3164 | LSTR       | Landstar System, Inc.
+  3170 | LUNR       | Intuitive Machines, Inc.
+  3181 | ASUR       | Asure Software, Inc.
+  3196 | BTSG       | BrightSpring Health Services, Inc. Common Stock
+  3233 | MNPR       | Monopar Therapeutics Inc.
+  3240 | FSTR       | L.B. Foster Company
+  3252 | CZR        | Caesars Entertainment, Inc.
+  3261 | HOVR       | New Horizon Aircraft Ltd.
+  3288 | ESPR       | Esperion Therapeutics, Inc.
+  3306 | ICLR       | ICON Public Limited Company
+  3309 | ICHR       | Ichor Holdings, Ltd.
+  3335 | DLTR       | Dollar Tree, Inc.
+  3360 | HTCR       | HeartCore Enterprises, Inc.
+  3397 | ADUR       | Aduro Clean Technologies Inc.
+  3421 | OTTR       | Otter Tail Corporation
+  3466 | XAIR       | Beyond Air, Inc.
+  3467 | IONR       | ioneer Ltd
+  3522 | WWR        | Westwater Resources, Inc.
+  3562 | RMR        | The RMR Group Inc.
+  3592 | WTGUR      | Wintergreen Acquisition Corp. Rights
+  3609 | BTSGU      | BrightSpring Health Services, Inc. Tangible Equity Unit
+  3616 | ATMCR      | AlphaTime Acquisition Corp Right
+  3621 | MNDR       | Mobile-health Network Solutions Class A Ordinary Shares
+  3639 | RDWR       | Radware Ltd.
+  3645 | CUPR       | Cuprina Holdings (Cayman) Limited Class A Ordinary Shares
+  3650 | RITR       | Reitar Logtech Holdings Limited Ordinary shares
+  3681 | RR         | Richtech Robotics Inc. Class B Common Stock
+  3687 | BANR       | Banner Corporation
+  3695 | KRKR       | 36Kr Holdings Inc.
+  3725 | CHR        | Cheer Holding, Inc.
+  3732 | CHAR       | Charlton Aria Acquisition Corporation
+  3751 | CNFR       | Conifer Holdings, Inc.
+  3753 | VICR       | Vicor Corporation
+  3765 | RRR        | Red Rock Resorts, Inc.
+  3789 | IDR        | Idaho Strategic Resources, Inc.
+  3793 | SNYR       | Synergy CHC Corp.
+  3820 | RSVR       | Reservoir Media, Inc.
+  3844 | PRQR       | ProQR Therapeutics N.V.
+  3852 | VRAR       | The Glimpse Group, Inc.
+  3863 | YHNAR      | YHN Acquisition I Limited Right
+  3888 | NVCR       | NovoCure Limited
+  3944 | MAR        | Marriott International, Inc.
+  3951 | DXR        | Daxor Corporation
+  3956 | EONR       | EON Resources Inc.
+  3961 | OMER       | Omeros Corporation
+  4014 | SNBR       | Sleep Number Corporation
+  4092 | CHNR       | China Natural Resources, Inc.
+  4093 | SABR       | Sabre Corporation
+  4116 | HOUR       | Hour Loop, Inc.
+  4155 | SCOR       | comScore, Inc.
+  4157 | THAR       | Tharimmune, Inc.
+  4187 | GGR        | Gogoro Inc.
+  4202 | TOUR       | Tuniu Corporation
+  4221 | BHFAL      | Brighthouse Financial, Inc.
+  4232 | ALAR       | Alarum Technologies Ltd.
+  4251 | CVR        | Chicago Rivet & Machine Co.
+  4272 | BNR        | Burning Rock Biotech Limited
+  4276 | XNCR       | Xencor, Inc.
+  4277 | SYPR       | Sypris Solutions, Inc.
+  4280 | AVR        | Anteris Technologies Global Corp.
+  4290 | KULR       | KULR Technology Group, Inc.
+  4302 | KZR        | Kezar Life Sciences, Inc.
+  4316 | TIGR       | UP Fintech Holding Limited
+  4339 | OSUR       | OraSure Technologies, Inc.
+  4384 | IPWR       | Ideal Power Inc.
+  4398 | SOAR       | Volato Group, Inc.
+  4410 | VOR        | Vor Biopharma Inc.
+  4421 | VOXR       | Vox Royalty Corp.
+  4432 | OKUR       | OnKure Therapeutics, Inc.
+  4441 | LFCR       | Lifecore Biomedical, Inc.
+  4482 | UTHR       | United Therapeutics Corporation
+  4501 | CSBR       | Champions Oncology, Inc.
+  4505 | AZTR       | Azitra, Inc.
+  4508 | IMCR       | Immunocore Holdings plc
+  4511 | VYGR       | Voyager Therapeutics, Inc.
+  4512 | SOBR       | SOBR Safe, Inc.
+  4514 | ATMVR      | AlphaVest Acquisition Corp
+  4530 | SNCR       | Synchronoss Technologies, Inc.
+  4547 | UCAR       | U Power Limited
+  4570 | PLUR       | Pluri Inc.
+  4580 | RANGR      | Range Capital Acquisition Corp.
+  4646 | PELIR      | Pelican Acquisition Corporation Right
+  4653 | GIPR       | Generation Income Properties, Inc.
+  4663 | SEER       | Seer, Inc.
+  4666 | TER        | Teradyne, Inc.
+  4678 | HYPR       | Hyperfine, Inc.
+  4685 | CAR        | Avis Budget Group, Inc.
+  4696 | VIR        | Vir Biotechnology, Inc.
+  4716 | ECOR       | electroCore, Inc.
+  4737 | PLMR       | Palomar Holdings, Inc.
+  4759 | REFR       | Research Frontiers Incorporated
+  4767 | XMTR       | Xometry, Inc.
+  4784 | HMR        | Heidmar Maritime Holdings Corp.
+  4795 | LIDR       | AEye, Inc.
+  4800 | XFOR       | X4 Pharmaceuticals, Inc.
+  4822 | BHFAP      | Brighthouse Financial, Inc.
+  4833 | BHFAM      | Brighthouse Financial, Inc.
+  4848 | RIBBR      | Ribbon Acquisition Corp Rights
+  4888 | OXBR       | Oxbridge Re Holdings Limited
+  4889 | AUR        | Aurora Innovation, Inc.
+  4896 | QETAR      | Quetta Acquisition Corporation
+  4927 | ARKR       | Ark Restaurants Corp.
+  4944 | NTGR       | NETGEAR, Inc.
+  4954 | LMNR       | Limoneira Company
+  4989 | PHAR       | Pharming Group N.V.
+  5081 | LCCCR      | Lakeshore Acquisition III Corp. Rights
+  5085 | NKTR       | Nektar Therapeutics
+  5096 | CURR       | Currenc Group, Inc.
+  5104 | USAR       | USA Rare Earth Inc
+  5133 | STRR       | Star Equity Holdings, Inc.
+  5158 | LNSR       | LENSAR, Inc.
+  5196 | NSPR       | InspireMD, Inc.
+  5200 | CAPNR      | Cayson Acquisition Corp Right
+  5204 | NNBR       | NN, Inc.
+  5206 | ATHR       | Aether Holdings, Inc. Common Stock
+  5262 | REKR       | Rekor Systems, Inc.
+  5267 | BHFAO      | Brighthouse Financial, Inc.
+  5273 | PCAR       | PACCAR Inc
+  5288 | FGMCR      | FG Merger II Corp. Rights
+  5294 | NATR       | Nature's Sunshine Products, Inc.
+  5302 | BMNR       | Bitmine Immersion Technologies, Inc.
+  5307 | PLTR       | Palantir Technologies Inc.
+  5341 | XCUR       | Exicure, Inc.
+  5404 | ISTR       | Investar Holding Corporation
+  5429 | MAYAR      | Maywood Acquisition Corp. Right
+  5452 | SDGR       | Schrödinger, Inc.
+  5467 | CRSR       | Corsair Gaming, Inc.
+  5471 | VVPR       | VivoPower International PLC
+  5516 | TRNR       | Interactive Strength Inc.
+  5523 | MKZR       | MacKenzie Realty Capital, Inc.
+  5555 | NESR       | National Energy Services Reunited Corp.
+  5561 | JFBR       | Jeffs' Brands Ltd
+  5567 | SPWR       | SunPower Corporation
+  5641 | ILLR       | Triller Group Inc.
+  5693 | VMAR       | Vision Marine Technologies Inc.
+  5698 | GBR        | New Concept Energy, Inc.
+  5704 | RTMVY      | Rightmove plc
+  5798 | SLSR       | Solaris Resources Inc.
+  5838 | RVBR       | Markray Corp.
+  5914 | PSA-PR     | Public Storage
+  5921 | TFC-PR     | Truist Financial Corporation
+  6141 | GETR       | Getaround, Inc.
+  6198 | HYSR       | SunHydrogen, Inc.
+  6224 | CAVR       | LiveToBeHappy, Inc.
+  6227 | HIGR       | Hi-Great Group Holding Company
+  6280 | VAPR       | VaporBrands International, Inc.
+  6302 | SER        | Serina Therapeutics, Inc.
+  6313 | RDAR       | Telvantis Inc.
+  6527 | WTER       | The Alkaline Water Company Inc.
+  6621 | LBSR       | Liberty Star Uranium & Metals Corp.
+  6717 | GUER       | Guerrilla RF, Inc.
+  6785 | IOR        | Income Opportunity Realty Investors, Inc.
+  6833 | RAKR       | Rainmaker Worldwide Inc.
+  6945 | ROLR       | High Roller Technologies, Inc.
+  7055 | IGTAR      | Inception Growth Acquisition Limited
+  7218 | GMER       | Good Gaming, Inc.
+  7611 | CHFFY      | China Everbright Environment Group Limited
+  7615 | CLVR       | Clever Leaves Holdings Inc.
+  7745 | RLTR       | Reeltime Rentals, Inc.
+  7749 | DRCR       | Dear Cashmere Holding Company
+  7763 | BRGC       | BrightRock Gold Corp.
+  7809 | BEDU       | Bright Scholar Education Holdings Limited
+  7812 | PRKR       | ParkerVision, Inc.
+  7908 | MRCR       | Moro Corporation
+  7918 | IBGR       | Nexus Energy Services, Inc.
+  7995 | PDER       | Pardee Resources Company
+  8055 | FUNR       | Funr
+  8090 | VPER       | Viper Networks, Inc.
+  8111 | CPWR       | Ocean Thermal Energy Corporation
+  8206 | ZCAR       | Zoomcar Holdings, Inc.
+  8215 | WTMAR      | Welsbach Technology Metals Acquisition Corp.
+  8241 | GMPR       | Gourmet Provisions International Corporation
+  8289 | BZYR       | Burzynski Research Institute, Inc.
+  8403 | MNTR       | Mentor Capital, Inc.
+  8409 | SCFR       | GamesGamesGames Technology, Inc.
+  8427 | BBLR       | Bubblr Inc.
+  8448 | HRBR       | Harbor Diversified, Inc.
+  8482 | TONR       | Tonner-One World Holdings, Inc.
+  8565 | POLR       | Polar Petroleum Corp.
+  8568 | LRGR       | Luminar Media Group, Inc.
+  8617 | NTRR       | Neutra Corp.
+  8749 | TGMR       | Troy Gold & Mineral Corp
+  8770 | DYNR       | DynaResource, Inc.
+  8842 | IWSH       | Wright Investors' Service Holdings, Inc.
+  8863 | BKOR       | Oak Ridge Financial Services, Inc.
+  8904 | RIHT       | Rightscorp, Inc.
+  8939 | EDVR       | Endeavor Bancorp
+  9055 | VRDR       | Verde Resources, Inc.
+  9109 | CNER       | China New Energy Group Co.
+  9111 | AAGR       | African Agriculture Holdings Inc.
+  9134 | AIFER      | Aifeex Nexus Acquisition Corp
+  9208 | BLFR       | BlueFire Equipment Corporation
+  9243 | JETR       | Star Jets International, Inc.
+  9265 | WTXR       | West Texas Resources, Inc.
+  9272 | WBSR       | Webstar Technology Group, Inc.
+  9365 | PMTR       | Perimeter Acquisition Corp. I Class A Ordinary Shares
+  9373 | NOEMR      | CO2 Energy Transition Corp.
+  9376 | DYCQR      | DT Cloud Acquisition Corporation
+  9382 | FERAR      | Fifth Era Acquisition Corp I Rights
+  9383 | HSPOR      | Horizon Space Acquisition I Corp.
+  9386 | HVIIR      | Hennessy Capital Investment Corp. VII
+  9388 | DTSQR      | DT Cloud Star Acquisition Corporation
+  9396 | RFAIR      | RF Acquisition Corp II Right
+  9400 | CRAQR      | Cal Redwood Acquisition Corp. Right
+  9402 | ASPCR      | A SPAC III Acquisition Corp.
+  9406 | DMAAR      | Drugs Made In America Acquisition Corp. Rights
+  9425 | BAYAR      | Bayview Acquisition Corp Right
+  9431 | IROHR      | Iron Horse Acquisitions Corp. Right
+  9432 | COLAR      | Columbus Acquisition Corp Rights
+  9457 | ANDR       | Andrea Electronics Corporation
+  9483 | GTOR       | GGToor, Inc.
+  9494 | NUVR       | Nuvera Communications, Inc.
+  9583 | EMCGR      | Embrace Change Acquisition Corp.
+  9594 | EMOR       | Healixa Inc.
+  9614 | SENR       | Strategic Environmental & Energy Resources, Inc.
+  9623 | VSMR       | Verify Smart Corp.
+  9629 | EFTR       | eFFECTOR Therapeutics, Inc.
+  9686 | PSCR       | Proto Script Pharmaceutical Corp.
+  9695 | SNWR       | Sanwire Corporation
+  9742 | VPOR       | Vapor Group, Inc.
+  9756 | NXMR       | NextMart, Inc.
+  9786 | GLLIR      | Globalink Investment Inc.
+  9799 | RTON       | Right On Brands, Inc.
+  9811 | TRVR       | Two Rivers Financial Group, Inc.
+  9884 | WPUR       | WaterPure International, Inc.
+  9986 | PSGR       | Pershing Resources Company, Inc.
+  9987 | FFMR       | First Farmers Financial Corporation
+ 10056 | HMMR       | Hammer Technology Holdings
+ 10102 | MPIR       | Empire Diversified Energy, Inc.
+ 10129 | AUTR       | Autris
+ 10174 | DMRR       | Dayton & Michigan Railroad Co.
+ 10295 | ACCR       | Access-Power & Co., Inc.
+ 10453 | GLBR       | Global Brokerage, Inc.
+ 10457 | HWTR       | HFactor, Inc.
+ 10486 | DNMR       | Danimer Scientific, Inc.
+ 10591 | TCOR       | TreeCon Resources, Inc.
+ 10592 | TEGR       | Terra Energy & Resource Technologies, Inc.
+ 10684 | PLYR       | Polymeric Resources Corporation
+ 10732 | BIOR       | Biora Therapeutics, Inc.
+ 10876 | EATR       | Eastern Asteria, Inc.
+ 10913 | PIFR       | Premier information Management, Inc.
+ 10971 | EPOR       | Epic Corp.
+ 10972 | EFIR       | EGPI Firecreek, Inc.
+ 10994 | FMYR       | Family Room Entertainment Corporation
+ 11117 | ATOR       | Astor Explorations Corp.
+ 11253 | ETKR       | Evolution Technology Resources Inc.
+ 11259 | CMNR       | Commerce Energy Group, Inc.
+ 11271 | KLMR       | KLM Royal Dutch Airlines
+ 11309 | CHFFF      | China Everbright Environment Group Limited
+ 11360 | SWRI       | Seawright Holdings, Inc.
+ 11401 | EAXR       | Ealixir, Inc.
+ 11452 | PRTR       | Precicion Trim, Inc.
+ 11506 | BMTM       | Bright Mountain Media, Inc.
+ 11636 | PGWFF      | PGG Wrightson Limited
+ 11815 | DSCR       | Discovery Minerals Ltd.
+ 11843 | HSPTR      | Horizon Space Acquisition II Corp. Right
+ 11850 | SDHIR      | Siddhi Acquisition Corp Right
+ 11853 | FVNNR      | Future Vision II Acquisition Corp.
+ 11855 | FSHPR      | Flag Ship Acquisition Corporation
+ 11867 | SVIIR      | Spring Valley Acquisition Corp. II
+ 11868 | AFJKR      | Aimei Health Technology Co., Ltd
+ 11872 | IBACR      | IB Acquisition Corp. Right
+ 11911 | SGER       | Sterling Energy Resources Incorporated
+ 11957 | CEVIY      | China Everbright Limited
+ 11958 | CEVIF      | China Everbright Limited
+ 12025 | EXSR       | Exchange Bank (Santa Rosa, CA)
+ 12150 | QWTR       | Quest Water Global, Inc.
+ 12193 | CTHR       | Charles & Colvard, Ltd.
+ 12210 | EUBG       | Entrepreneur Universe Bright Group
+ 12290 | MCAGR      | Mountain Crest Acquisition Corp. V
+ 12332 | CCUR       | CCUR Holdings, Inc.
+ 12340 | NNYR       | Northamerican Energy Group Corporation
+ 12375 | TBRIF      | Therma Bright Inc.
+ 12454 | CAGR       | California Grapes International, Inc.
+ 12457 | BRER       | Bresler & Reiner, Inc.
+ 12549 | GOGR       | Go Green Global Technologies Corp.
+ 12617 | SRSR       | Sarissa Resources Inc.
+ 12744 | ABPR       | Airborne Security & Protective Services, Inc.
+ 12749 | BGXX       | Bright Green Corporation
+ 12761 | RTMVF      | Rightmove plc
+ 12819 | GEGR       | Gaensel Energy Group, Inc.
+
+SPACs: 118 entries
+------------------------------------------------------------
+   119 | EQV        | EQV Ventures Acquisition Corp.
+   134 | PKE        | Park Aerospace Corp.
+   345 | EVTL       | Vertical Aerospace Ltd.
+   741 | HWM        | Howmet Aerospace Inc.
+   853 | GE         | GE Aerospace
+  1490 | AACT       | Ares Acquisition Corporation II
+  2125 | XTIA       | XTI Aerospace, Inc.
+  2491 | ASTS       | AST SpaceMobile, Inc.
+  2585 | HLXB       | Helix Acquisition Corp. II
+  2667 | GEOS       | Geospace Technologies Corporation
+  2735 | GSRT       | GSR III Acquisition Corp.
+  3339 | KFII       | K&F Growth Acquisition Corp. II Class A Ordinary shares
+  3417 | CHAC       | Crane Harbor Acquisition Corp.
+  3425 | OYSE       | Oyster Enterprises II Acquisition Corp
+  3493 | ALF        | Centurion Acquisition Corp.
+  3498 | CRAQ       | Cal Redwood Acquisition Corp. Class A Ordinary Shares
+  3585 | RANG       | Range Capital Acquisition Corp.
+  3856 | RXT        | Rackspace Technology, Inc.
+  3867 | TALK       | Talkspace, Inc.
+  3899 | BACC       | Blue Acquisition Corp.
+  3906 | HSPO       | Horizon Space Acquisition I Corp. Ordinary Shares
+  3907 | TACO       | Berto Acquisition Corp.
+  3909 | TVAI       | Thayer Ventures Acquisition Corporation II Class A Ordinary Shares
+  3917 | MACI       | Melar Acquisition Corp. I
+  3975 | MLAC       | Mountain Lake Acquisition Corp.
+  3982 | AACI       | Armada Acquisition Corp. II
+  4095 | ZSPC       | zSpace, Inc.
+  4096 | ANSC       | Agriculture & Natural Solutions Acquisition Corporation Class A Ordinary Shares
+  4100 | PLMK       | Plum Acquisition Corp. IV
+  4102 | IPCX       | Inflection Point Acquisition Corp. III
+  4138 | TACH       | Titan Acquisition Corp.
+  4168 | DRDB       | Roman DBDR Acquisition Corp. II
+  4172 | AIFE       | Aifeex Nexus Acquisition Corp
+  4213 | ATMC       | AlphaTime Acquisition Corp
+  4214 | BEAG       | Bold Eagle Acquisition Corp.
+  4346 | EGHA       | EGH Acquisition Corp. Class A Ordinary Shares
+  4372 | WLAC       | Willow Lane Acquisition Corp.
+  4434 | RTAC       | Renatus Tactical Acquisition Corp I Class A Ordinary Shares
+  4472 | PCAP       | ProCap Acquisition Corp
+  4488 | WENN       | Wen Acquisition Corp Class A Ordinary Shares
+  4520 | PELI       | Pelican Acquisition Corporation Ordinary Shares
+  4539 | BACQ       | Bleichroeder Acquisition Corp. I
+  4550 | INAC       | Indigo Acquisition Corp.
+  4726 | HOND       | HCM II Acquisition Corp.
+  4736 | NPAC       | New Providence Acquisition Corp. III
+  4804 | WTG        | Wintergreen Acquisition Corp.
+  4809 | SVII       | Spring Valley Acquisition Corp. II
+  4821 | BKHA       | Black Hawk Acquisition Corporation
+  4837 | DMAA       | Drugs Made In America Acquisition Corp. Ordinary Shares
+  4884 | KVAC       | Keen Vision Acquisition Corporation Ordinary Shares
+  5135 | SZZL       | Sizzle Acquisition Corp. II
+  5241 | VACH       | Voyager Acquisition Corp.
+  5373 | LOKV       | Live Oak Acquisition Corp. V Class A Ordinary Shares
+  5384 | GPAT       | GP-Act III Acquisition Corp.
+  5432 | SPKL       | Spark I Acquisition Corp. Class A Ordinary Share
+  5446 | MAYA       | Maywood Acquisition Corp.
+  5454 | DAAQ       | Digital Asset Acquisition Corp.
+  5487 | BAYA       | Bayview Acquisition Corp Class A Ordinary Shares
+  5493 | LPBB       | Launch Two Acquisition Corp.
+  5499 | LPAA       | Launch One Acquisition Corp.
+  5568 | RFAI       | RF Acquisition Corp II Ordinary Shares
+  5845 | RAC        | Rithm Acquisition Corp.
+  5853 | KCHV       | Kochav Defense Acquisition Corp.
+  5917 | ESHA       | ESH Acquisition Corp.
+  6136 | ASPC       | ASPAC III Acquisition Corp.
+  6152 | ATMV       | AlphaVest Acquisition Corp
+  6168 | TDAC       | Translational Development Acquisition Corp.
+  6778 | FSHP       | Flag Ship Acquisition Corporation
+  7006 | ALCY       | Alchemy Investments Acquisition Corp 1
+  7140 | UYSC       | UY Scuti Acquisition Corp.
+  7539 | AAM        | AA Mission Acquisition Corp.
+  7833 | IMAQ       | International Media Acquisition Corp.
+  8123 | IPOD       | Dune Acquisition Corporation II
+  8132 | EQV-UN     | EQV Ventures Acquisition Corp.
+  8285 | POLE       | Andretti Acquisition Corp. II
+  8511 | PORT       | Southport Acquisition Corporation
+  8552 | FTII       | FutureTech II Acquisition Corp.
+  8763 | JENA-UN    | Jena Acquisition Corporation II
+  8805 | MALJF      | Magellan Aerospace Corporation
+  8954 | COPL       | Copley Acquisition Corp
+  8973 | SDHI       | Siddhi Acquisition Corp
+  8987 | MCAG       | Mountain Crest Acquisition Corp. V
+  9023 | NTWO       | Newbury Street II Acquisition Corp
+  9075 | SOUL       | Soulpower Acquisition Corp.
+  9081 | SMAP       | SportsMap Tech Acquisition Corp.
+  9104 | HYAC       | Haymaker Acquisition Corp. III
+  9146 | HWM-P      | Howmet Aerospace Inc.
+  9298 | JENA       | Jena Acquisition Corporation II
+  9366 | DYCQ       | DT Cloud Acquisition Corporation
+  9381 | HSPT       | Horizon Space Acquisition II Corp.
+  9390 | ATII       | Archimedes Tech SPAC Partners II Co. Ordinary Shares
+  9394 | FERA       | Fifth Era Acquisition Corp I Class A Ordinary Shares
+  9395 | EURK       | Eureka Acquisition Corp Class A Ordinary Share
+  9397 | OACC       | Oaktree Acquisition Corp. III Life Sciences
+  9421 | FACT       | FACT II Acquisition Corp
+  9589 | CAPN       | Cayson Acquisition Corp Ordinary shares
+  9752 | FVN        | Future Vision II Acquisition Corp.
+  9782 | AEAE       | AltEnergy Acquisition Corp.
+  9924 | WTMA       | Welsbach Technology Metals Acquisition Corp.
+ 10015 | RAAQ       | Real Asset Acquisition Corp.
+ 10018 | DTSQ       | DT Cloud Star Acquisition Corporation
+ 10022 | FORL       | Four Leaf Acquisition Corporation
+ 10027 | IBAC       | IB Acquisition Corp. Common Stock
+ 10161 | AXAC       | AXIOS Sustainable Growth Acquisition Corporation
+ 10225 | MSPC       | Metrospaces, Inc.
+ 10400 | NBST       | Newbury Street Acquisition Corporation
+ 10577 | PMVC       | PMV Consumer Acquisition Corp.
+ 11138 | ATEK       | Athena Technology Acquisition Corp. II
+ 11334 | CMCAF      | Capitalworks Emerging Markets Acquisition Corp
+ 11537 | PLQC       | Plains Acquisition Corporation
+ 11770 | SPMMF      | Space-Communication Ltd
+ 11851 | CHPG       | ChampionsGate Acquisition Corporation Class A Ordinary Share
+ 11860 | QSEA       | Quartzsea Acquisition Corporation
+ 11874 | TAVI       | Tavia Acquisition Corp.
+ 12196 | TRXA       | T-REX Acquisition Corp.
+ 12198 | CCAJ       | Coastal Capital Acquisition Corp.
+ 12311 | WINV       | WinVest Acquisition Corp.
+ 12705 | DSAQ       | Direct Selling Acquisition Corp.
+
+Trusts: 2 entries
+------------------------------------------------------------
+  5553 | WTFC       | Wintrust Financial Corporation
+ 12087 | ATCC       | Ameritrust Corporation
+
+Units: 250 entries
+------------------------------------------------------------
+    85 | UNFI       | United Natural Foods, Inc.
+   110 | TDS-PU     | Telephone and Data Systems, Inc.
+   151 | TRU        | TransUnion
+   222 | MANU       | Manchester United plc
+   244 | PRKS       | United Parks & Resorts Inc.
+   265 | MDU        | MDU Resources Group, Inc.
+   298 | UPS        | United Parcel Service, Inc.
+   389 | YOU        | Clear Secure, Inc.
+   409 | LU         | Lufax Holding Ltd
+   530 | SU         | Suncor Energy Inc.
+   562 | AVB        | AvalonBay Communities, Inc.
+   644 | ECCU       | Eagle Point Credit Company Inc.
+   679 | CCS        | Century Communities, Inc.
+   745 | MAA        | Mid-America Apartment Communities, Inc.
+   799 | LXU        | LSB Industries, Inc.
+   831 | UCB        | United Community Banks, Inc.
+   840 | SPRU       | Spruce Power Holding Corporation
+   869 | CGAU       | Centerra Gold Inc.
+   916 | NU         | Nu Holdings Ltd.
+   944 | UTL        | Unitil Corporation
+  1011 | SUI        | Sun Communities, Inc.
+  1021 | GOTU       | Gaotu Techedu Inc.
+  1028 | CCU        | Compañía Cervecerías Unidas S.A.
+  1068 | USM        | United States Cellular Corporation
+  1089 | EDU        | New Oriental Education & Technology Group Inc.
+  1094 | PRSU       | Pursuit Attractions and Hospitality, Inc.
+  1154 | PRU        | Prudential Financial, Inc.
+  1191 | AFFU       | Affluence Corporation
+  1212 | AU         | AngloGold Ashanti Plc
+  1247 | BTU        | Peabody Energy Corporation
+  1271 | URI        | United Rentals, Inc.
+  1272 | WU         | The Western Union Company
+  1330 | UMC        | United Microelectronics Corporation
+  1489 | CBU        | Community Bank System, Inc.
+  1494 | FSCO       | FS Credit Opportunities Corp.
+  1495 | CEPU       | Central Puerto S.A.
+  1538 | NEU        | NewMarket Corporation
+  1624 | U          | Unity Software Inc.
+  1637 | TU         | TELUS Corporation
+  1705 | ATMU       | Atmus Filtration Technologies Inc.
+  1712 | BKU        | BankUnited, Inc.
+  1780 | ELME       | Elme Communities
+  1809 | UNH        | UnitedHealth Group Incorporated
+  1813 | CYH        | Community Health Systems, Inc.
+  1917 | IBRX       | ImmunityBio, Inc.
+  2009 | MBUU       | Malibu Boats, Inc.
+  2031 | CWBC       | Community West Bancshares
+  2110 | CELU       | Celularity Inc.
+  2191 | FUFU       | BitFuFu Inc.
+  2239 | ACTU       | Actuate Therapeutics Inc
+  2270 | CRBU       | Caribou Biosciences, Inc.
+  2282 | KALU       | Kaiser Aluminum Corporation
+  2458 | DOCU       | DocuSign, Inc.
+  2612 | LULU       | Lululemon Athletica Inc.
+  2617 | KEQU       | Kewaunee Scientific Corporation
+  2625 | CZWI       | Citizens Community Bancorp, Inc.
+  2832 | AYTU       | Aytu BioPharma, Inc.
+  2863 | CYCU       | Cycurion, Inc. Common Stock
+  2907 | JBLU       | JetBlue Airways Corporation
+  2971 | ALMU       | Aeluma, Inc.
+  2998 | INTU       | Intuit Inc.
+  3088 | FUTU       | Futu Holdings Limited
+  3089 | FCCO       | First Community Corporation
+  3095 | FUNC       | First United Corporation
+  3127 | DCOM       | Dime Community Bancshares, Inc.
+  3131 | DCOMP      | Dime Community Bancshares, Inc.
+  3225 | BIDU       | Baidu, Inc.
+  3263 | FCBC       | First Community Bankshares, Inc.
+  3293 | MU         | Micron Technology, Inc.
+  3330 | TACOU      | Berto Acquisition Corp. Unit
+  3351 | UYSCU      | UY Scuti Acquisition Corp. Units
+  3362 | ACU        | Acme United Corporation
+  3375 | TACHU      | Titan Acquisition Corp. Units
+  3391 | UBFO       | United Security Bancshares
+  3392 | UAL        | United Airlines Holdings, Inc.
+  3405 | UFCS       | United Fire Group, Inc.
+  3513 | ROKU       | Roku, Inc.
+  3546 | CCIRU      | Cohen Circle Acquisition Corp. I
+  3577 | OYSEU      | Oyster Enterprises II Acquisition Corp
+  3647 | ICU        | SeaStar Medical Holding Corporation
+  3669 | CVU        | CPI Aerostructures, Inc.
+  3674 | AIFU       | AIX Inc.
+  3733 | CRAQU      | Cal Redwood Acquisition Corp.
+  3762 | UAMY       | United States Antimony Corporation
+  3901 | NIU        | Niu Technologies
+  3981 | LVLU       | Lulu's Fashion Lounge Holdings, Inc.
+  3987 | AACIU      | Armada Acquisition Corp. II
+  4076 | UG         | United-Guardian, Inc.
+  4084 | JFU        | 9F Inc.
+  4117 | PCAPU      | ProCap Acquisition Corp
+  4178 | UBCP       | United Bancorp, Inc.
+  4182 | ACIU       | AC Immune S.A.
+  4227 | CGCTU      | Cartesian Growth Corporation III Unit
+  4231 | DMAAU      | Drugs Made In America Acquisition Corp. Units
+  4244 | RIBBU      | Ribbon Acquisition Corp.
+  4320 | USEA       | United Maritime Corporation
+  4340 | USLM       | United States Lime & Minerals, Inc.
+  4345 | CHARU      | Charlton Aria Acquisition Corporation
+  4368 | UBSI       | United Bankshares, Inc.
+  4374 | SZZLU      | Sizzle Acquisition Corp. II
+  4461 | SOHU       | Sohu.com Limited
+  4481 | VENU       | Venu Holding Corporation
+  4485 | TCBS       | Texas Community Bancshares, Inc.
+  4490 | ANSCU      | Agriculture & Natural Solutions Acquisition Corporation Unit
+  4492 | BURU       | Nuburu, Inc.
+  4553 | SDHIU      | Siddhi Acquisition Corp Unit
+  4590 | UNTY       | Unity Bancorp, Inc.
+  4600 | INACU      | Indigo Acquisition Corp. Unit
+  4604 | ATMCU      | AlphaTime Acquisition Corp
+  4619 | RTACU      | Renatus Tactical Acquisition Corp I
+  4643 | GIGGU      | GigCapital4, Inc.
+  4656 | VERU       | Veru Inc.
+  4677 | CHPGU      | ChampionsGate Acquisition Corporation
+  4692 | UHG        | United Homes Group, Inc.
+  4727 | SVIIU      | Spring Valley Acquisition Corp. II
+  4733 | WTGUU      | Wintergreen Acquisition Corp.
+  4742 | ALDFU      | Aldel Financial II Inc.
+  4789 | IPCXU      | Inflection Point Acquisition Corp. III Units
+  4815 | DCOMG      | Dime Community Bancshares, Inc.
+  4823 | BLUWU      | Blue Water Acquisition Corp.
+  4875 | FGMCU      | FG Merger Corp.
+  4878 | LWACU      | LightWave Acquisition Corp.
+  5060 | UUUU       | Energy Fuels Inc.
+  5083 | HCMAU      | HCM Acquisition Corp
+  5108 | DYNXU      | Dynamix Corporation
+  5138 | QSEAU      | Quartzsea Acquisition Corporation Units
+  5285 | VALU       | Value Line, Inc.
+  5311 | SOCAU      | Solarius Capital Acquisition Corp
+  5327 | USAU       | U.S. Gold Corp.
+  5388 | COHU       | Cohu, Inc.
+  5393 | EU         | enCore Energy Corp.
+  5403 | INFU       | InfuSystem Holdings, Inc.
+  5418 | WAFU       | Wah Fu Education Group Limited
+  5450 | LEU        | Centrus Energy Corp.
+  5463 | DOYU       | DouYu International Holdings Limited
+  5473 | PACHU      | Pioneer Acquisition I Corp Units
+  5478 | MPU        | Mega Matrix Corp.
+  5511 | GAU        | Galiano Gold Inc.
+  5540 | UNIT       | Uniti Group Inc.
+  5547 | RDAGU      | Republic Digital Acquisition Company Unit
+  5552 | NECB       | Northeast Community Bancorp, Inc.
+  5569 | NPACU      | New Providence Acquisition Corp. III Units
+  5577 | NMPAU      | NMP Acquisition Corp. Units
+  5590 | WENNU      | Wen Acquisition Corp
+  5597 | HUHU       | HUHUTECH International Group Inc. Ordinary Shares
+  5627 | UUU        | Universal Security Instruments, Inc.
+  5633 | SIDU       | Sidus Space, Inc.
+  5749 | ISOU       | IsoEnergy Ltd.
+  5760 | KCHVU      | Kochav Defense Acquisition Corp.
+  5933 | NHICU      | NewHold Investment Corp III
+  6155 | UTRX       | Unitronix Corporation
+  6273 | UOVEY      | United Overseas Bank Limited
+  6279 | HIRU       | Hiru Corporation
+  6296 | ALBY       | Community Capital Bancshares, Inc.
+  6396 | MOGU       | MOGU Inc.
+  6420 | UUGRY      | United Utilities Group PLC
+  6601 | UOVEF      | United Overseas Bank Limited
+  6688 | PUTKY      | PT United Tractors Tbk
+  6843 | ICBU       | iMD Companies, Inc.
+  7017 | UAPC       | United American Petroleum Corp.
+  7089 | MAA-PI     | Mid-America Apartment Communities, Inc.
+  7265 | POLEU      | Andretti Acquisition Corp. II
+  7336 | APRU       | Apple Rush Company, Inc.
+  7418 | UBAB       | United Bancorporation of Alabama, Inc.
+  7508 | FNRN       | First Northern Community Bancorp
+  7519 | CRAWA      | Crawford United Corporation
+  7623 | UNRG       | United Energy Corp.
+  7674 | WCCB       | West Coast Community Bancorp
+  7776 | UNTC       | Unit Corporation
+  7851 | ATIIU      | Archimedes Tech SPAC Partners II Co. Unit
+  7880 | CYSM       | Community Bancorp of Santa Maria
+  7906 | UNBX       | Unity Biotechnology, Inc.
+  7915 | PSRU       | Valiant Eagle Inc.
+  7969 | INVU       | Investview, Inc.
+  8057 | CFSU       | Complete Financial Solutions, Inc.
+  8080 | GRCU       | Green Cures & Botanical Distribution Inc.
+  8131 | UEEC       | United Health Products, Inc.
+  8151 | ASPU       | Aspen Group, Inc.
+  8188 | FEDU       | Four Seasons Education (Cayman) Inc.
+  8224 | FUNFF      | FansUnite Entertainment Inc.
+  8271 | MHGU       | Meritage Hospitality Group Inc.
+  8328 | ULTHF      | United Lithium Corp.
+  8436 | VCICU      | Vine Hill Capital Investment Corp.
+  8485 | MBAVU      | M3-Brigade Acquisition V Corp. Units
+  8526 | CTYP       | Community Bankers' Corporation
+  8569 | CMTV       | Community Bancorp
+  8723 | CCIXU      | Churchill Capital Corp IX
+  8841 | UNTN       | United Tennessee Bankshares, Inc.
+  8927 | RAAQU      | Real Asset Acquisition Corp. Unit
+  9021 | UBQU       | Ubiquitech Software Corp.
+  9133 | CUBWU      | Lionheart Holdings Unit
+  9215 | UNBK       | United National Bank
+  9258 | FCCT       | First Community Corporation
+  9261 | LUVU       | Luvu Brands, Inc.
+  9284 | OAKU       | Oak Woods Acquisition Corporation
+  9329 | HVIIU      | Hennessy Capital Investment Corp. VII
+  9374 | EURKU      | Eureka Acquisition Corp Unit
+  9378 | GTENU      | Gores Holdings X, Inc. Units
+  9379 | LOKVU      | Live Oak Acquisition Corp. V Units
+  9380 | HSPTU      | Horizon Space Acquisition II Corp.
+  9409 | PMTRU      | Perimeter Acquisition Corp. I
+  9444 | IPODU      | Dune Acquisition Corporation II Units
+  9454 | SQCF       | Susquehanna Community Financial, Inc.
+  9459 | UBOH       | United Bancshares, Inc.
+  9673 | RVCB       | River Valley Community Bancorp
+  9759 | MBLU       | Morris State Bancshares, Inc.
+  9793 | LCNTU      | Louisiana Central Oil & Gas Co.
+  9832 | CNBB       | CNB Community Bancorp, Inc.
+  9956 | HSPOU      | Horizon Space Acquisition I Corp.
+ 10039 | YHNAU      | YHN Acquisition I Limited Unit
+ 10041 | CMHF       | Community Heritage Financial, Inc.
+ 10134 | ISRLU      | Israel Acquisitions Corp Unit
+ 10208 | EWLU       | Merion, Inc.
+ 10222 | HMNU       | Human Unitec International, Inc.
+ 10224 | MSIU       | Medical Supply International USA, Inc.
+ 10239 | URYL       | United Royale Holdings Corp.
+ 10277 | NWAU       | Consumer Automotive Finance, Inc.
+ 10402 | UCPLF      | United Corporations Limited
+ 10439 | BLUU       | Blue Water Global Group, Inc.
+ 10790 | AOGOU      | Arogo Capital Acquisition Corp.
+ 10893 | PUTKF      | PT United Tractors Tbk
+ 10969 | CAGU       | The Castle Group, Inc.
+ 11103 | CNUN       | Community Bancshares, Inc.
+ 11263 | GGROU      | Golden Growers Cooperative
+ 11268 | IPEU       | IPE Universal Inc.
+ 11596 | INGEF      | Ingenia Communities Group
+ 11616 | UNEGF      | United Energy Group Limited
+ 11660 | WTMAU      | Welsbach Technology Metals Acquisition Corp.
+ 11709 | NTRU       | Natur International Corp.
+ 11759 | UUGWF      | United Utilities Group PLC
+ 11846 | LCCCU      | Lakeshore Acquisition III Corp. Unit
+ 11854 | BACCU      | Blue Acquisition Corp. Unit
+ 11859 | TDACU      | Translational Development Acquisition Corp.
+ 11879 | EGHAU      | EGH Acquisition Corporation
+ 12006 | FMFP       | First Community Financial Corporation
+ 12010 | OAKUU      | Oak Woods Acquisition Corporation
+ 12067 | SSUNF      | SIGNA Sports United N.V.
+ 12117 | CBGH       | China YiBai United Guarantee International Holding, Inc.
+ 12125 | UAHC       | United American Healthcare Corporation
+ 12158 | NETDU      | Nabors Energy Transition Corp. II
+ 12342 | CIBN       | Community Investors Bancorp, Inc.
+ 12371 | SPKLU      | Spark I Acquisition Corp. Unit
+ 12563 | FCCTO      | First Community Corporation PFD SER B
+ 12616 | UNIKF      | Unitika Ltd.
+ 12681 | AUHIF      | Advance United Holdings Inc.
+ 12685 | AEAEU      | AltEnergy Acquisition Corp.
+ 12730 | GDSTU      | Goldenstone Acquisition Limited
+ 12753 | IRRXU      | Integrated Rail and Resources Acquisition Corp.
+ 12784 | CRDV       | Community Redevelopment Inc.
+ 12827 | IGTAU      | Inception Growth Acquisition Limited
+
+Warrants: 396 entries
+------------------------------------------------------------
+    80 | LAW        | CS Disco, Inc.
+   105 | GLW        | Corning Incorporated
+   202 | SHW        | The Sherwin-Williams Company
+   206 | NOW        | ServiceNow, Inc.
+   331 | SW         | Smurfit Westrock Plc
+   361 | CLW        | Clearwater Paper Corporation
+   362 | LOW        | Lowe's Companies, Inc.
+   431 | MTW        | The Manitowoc Company, Inc.
+   590 | WWW        | Wolverine World Wide, Inc.
+   594 | ARW        | Arrow Electronics, Inc.
+   638 | DOW        | Dow Inc.
+   795 | HAYW       | Hayward Holdings, Inc.
+   802 | KW         | Kennedy-Wilson Holdings, Inc.
+   803 | BBW        | Build-A-Bear Workshop, Inc.
+   839 | PLOW       | Douglas Dynamics, Inc.
+   849 | CXW        | CoreCivic, Inc.
+   867 | ITW        | Illinois Tool Works Inc.
+   888 | SBSW       | Sibanye Stillwater Limited
+   923 | SNOW       | Snowflake Inc.
+   924 | SCHW       | The Charles Schwab Corporation
+  1010 | HIW        | Highwoods Properties, Inc.
+  1062 | BOW        | Bowhead Specialty Holdings Inc.
+  1092 | EW         | Edwards Lifesciences Corporation
+  1139 | DTW        | DTE Energy Company JR SUB DB 2017 E
+  1149 | BW         | Babcock & Wilcox Enterprises, Inc.
+  1171 | TDW        | Tidewater Inc.
+  1224 | ECCW       | Eagle Point Credit Company Inc.
+  1255 | DNOW       | Dnow Inc.
+  1322 | INSW       | International Seaways, Inc.
+  1366 | WOW        | WideOpenWest, Inc.
+  1453 | PNW        | Pinnacle West Capital Corporation
+  1661 | GWW        | W.W. Grainger, Inc.
+  1688 | CW         | Curtiss-Wright Corporation
+  1693 | RDW        | Redwire Corporation
+  1696 | CSW        | CSW Industrials, Inc.
+  1731 | LW         | Lamb Weston Holdings, Inc.
+  1763 | W          | Wayfair Inc.
+  1795 | GNW        | Genworth Financial, Inc.
+  1927 | FSBW       | FS Bancorp, Inc.
+  2173 | CHRW       | C.H. Robinson Worldwide, Inc.
+  2199 | ELPW       | Elong Power Holding Limited
+  2202 | HROW       | Harrow Health, Inc.
+  2455 | MSW        | Ming Shing Group Holdings Limited
+  2521 | MCW        | Mister Car Wash, Inc.
+  2560 | MYFW       | First Western Financial, Inc.
+  2577 | GSIW       | Garden Stage Limited Ordinary Shares
+  2662 | MKTW       | MarketWise, Inc.
+  2711 | AVNW       | Aviat Networks, Inc.
+  2717 | AROW       | Arrow Financial Corporation
+  2753 | ACIW       | ACI Worldwide, Inc.
+  2755 | LNW        | Light & Wonder, Inc.
+  3071 | FLYW       | Flywire Corporation
+  3153 | CVGW       | Calavo Growers, Inc.
+  3265 | FINW       | FinWise Bancorp
+  3321 | FLDDW      | FTAC Emerald Acquisition Corp.
+  3323 | BENFW      | Beneficient
+  3326 | CORZW      | Core Scientific, Inc.
+  3327 | OSRHW      | OSR Holdings, Inc.
+  3331 | MACIW      | Melar Acquisition Corp. I Warrant
+  3332 | EVGOW      | EVgo, Inc.
+  3341 | AFRIW      | Forafric Global PLC
+  3352 | ANSCW      | Agriculture & Natural Solutions Acquisition Corporation
+  3353 | EZPW       | EZCORP, Inc.
+  3357 | GRRRW      | Gorilla Technology Group Inc.
+  3364 | KPLTW      | Katapult Holdings, Inc.
+  3367 | FFAIW      | Faraday Future Intelligent Electric Inc.
+  3372 | XAGEW      | Longevity Health Holdings Inc.
+  3386 | NXLIW      | Nexalin Technology, Inc.
+  3399 | DAICW      | CID HoldCo, Inc. Warrants
+  3408 | SWAGW      | Stran & Company, Inc.
+  3412 | NIVFW      | NewGenIvf Group Limited
+  3416 | ATIIW      | Archimedes Tech SPAC Partners II Co. Warrant
+  3418 | TMCWW      | TMC the metals company Inc.
+  3422 | ONMDW      | OneMedNet Corporation
+  3436 | GRABW      | Grab Holdings Limited
+  3438 | JFBRW      | Jeffs' Brands Ltd
+  3442 | TVGNW      | Tevogen Bio Holdings Inc.
+  3462 | NOEMW      | CO2 Energy Transition Corp.
+  3496 | BCTXZ      | BriaCell Therapeutics Corp. Warrant
+  3510 | RGTIW      | Rigetti Computing, Inc.
+  3534 | NVNIW      | Nvni Group Limited Warrants
+  3550 | NCPLW      | Netcapital Inc.
+  3566 | RNW        | ReNew Energy Global Plc
+  3570 | CRGOW      | Freightos Limited
+  3572 | TALKW      | Talkspace, Inc.
+  3578 | BZAIW      | Blaize Holdings, Inc.
+  3580 | DFLIW      | Dragonfly Energy Holdings Corp.
+  3610 | GCLWW      | GCL Global Holdings Ltd Warrants
+  3611 | ONFOW      | Onfolio Holdings, Inc.
+  3612 | NNAVW      | NextNav Inc.
+  3623 | MOBBW      | Mobilicom Limited
+  3624 | ABVEW      | Above Food Ingredients Inc. Warrants
+  3632 | AREBW      | American Rebel Holdings, Inc.
+  3646 | BLDEW      | Blade Air Mobility, Inc.
+  3649 | GGROW      | Gogoro Inc.
+  3656 | CDIOW      | Cardio Diagnostics Holdings, Inc.
+  3664 | CDW        | CDW Corporation
+  3698 | LCFYW      | Locafy Limited
+  3721 | RUMBW      | Rumble Inc.
+  3730 | DSYWW      | Big Tree Cloud Holdings Limited Warrants
+  3748 | BFRIW      | Biofrontera Inc.
+  3752 | TRAW       | Traws Pharma, Inc.
+  3756 | QSIAW      | Quantum-Si incorporated
+  3769 | MKDWW      | MKDWELL Tech Inc.
+  3775 | TROW       | T. Rowe Price Group, Inc.
+  3785 | CREVW      | Carbon Revolution Public Limited Company Warrant
+  3798 | HPAIW      | Helport AI Limited
+  3808 | KNW        | Know Labs, Inc.
+  3824 | FMSTW      | Foremost Lithium Resource & Technology Ltd.
+  3829 | PANW       | Palo Alto Networks, Inc.
+  3835 | NLSPW      | NLS Pharmaceutics AG
+  3849 | HUBCW      | HUB Cyber Security (Israel) Ltd.
+  3857 | SYTAW      | Siyata Mobile Inc.
+  3870 | PBMWW      | Psyence Biomedical Ltd. Warrant
+  3881 | STGW       | Stagwell Inc.
+  3893 | TBLAW      | Taboola.com, Ltd.
+  3896 | OUSTW      | Ouster, Inc.
+  3897 | DRTSW      | Alpha Tau Medical Ltd.
+  3908 | WNW        | Meiwu Technology Company Limited
+  3910 | AUUDW      | Auddia Inc.
+  3942 | CORZZ      | Core Scientific, Inc. Tranche 2 Warrants
+  3957 | DATSW      | DatChat, Inc.
+  3960 | STSSW      | Sharps Technology, Inc.
+  3988 | GDEVW      | Nexters Inc.
+  4002 | DAVEW      | Dave Inc.
+  4004 | HUMAW      | Humacyte, Inc.
+  4005 | NRSNW      | NeuroSense Therapeutics Ltd.
+  4007 | BTMWW      | Bitcoin Depot Inc.
+  4040 | MYPSW      | PLAYSTUDIOS Inc
+  4045 | HOLOW      | MicroCloud Hologram Inc.
+  4048 | NPACW      | New Providence Acquisition Corp. III Warrants
+  4053 | IVDAW      | Iveda Solutions, Inc.
+  4070 | ADVWW      | Advantage Solutions Inc.
+  4071 | IINNW      | Inspira Technologies Oxy B.H.N. Ltd.
+  4088 | DTSTW      | Data Storage Corporation
+  4097 | SABSW      | SAB Biotherapeutics, Inc.
+  4104 | XBPEW      | XBP Europe Holdings, Inc.
+  4105 | PLMKW      | Plum Acquisition Corp. IV
+  4112 | MATW       | Matthews International Corporation
+  4121 | INVZW      | Innoviz Technologies Ltd.
+  4124 | ANGHW      | Anghami Inc.
+  4129 | CIFRW      | Cipher Mining Inc.
+  4130 | MNTSW      | Momentus Inc.
+  4140 | DJTWW      | Trump Media & Technology Group Corp.
+  4143 | CDROW      | Codere Online Luxembourg, S.A.
+  4147 | BCTXW      | BriaCell Therapeutics Corp.
+  4152 | OXBRW      | Oxbridge Re Holdings Limited
+  4158 | RVSNW      | Rail Vision Ltd.
+  4181 | ARTW       | Art's-Way Manufacturing Co., Inc.
+  4184 | FAASW      | DigiAsia Corp.
+  4211 | GFAIW      | Guardforce AI Co., Limited
+  4215 | AERTW      | Aeries Technology, Inc
+  4234 | BZFDW      | BuzzFeed, Inc.
+  4243 | AMPGW      | AmpliTech Group, Inc.
+  4250 | APLMW      | Apollomics, Inc.
+  4264 | NWTNW      | NWTN Inc.
+  4300 | KITTW      | Nauticus Robotics, Inc.
+  4326 | ECDAW      | ECD Automotive Design, Inc.
+  4349 | VSEEW      | VSee Health, Inc.
+  4351 | SVREW      | SaverOne 2014 Ltd
+  4373 | MKDW       | MKDWELL Tech Inc.
+  4383 | MAPSW      | WM Technology, Inc.
+  4394 | WLACW      | Willow Lane Acquisition Corp.
+  4407 | HOVRW      | New Horizon Aircraft Ltd.
+  4414 | MBAVW      | M3-Brigade Acquisition V Corp.
+  4419 | PGYWW      | Pagaya Technologies Ltd.
+  4435 | NUKKW      | Nukkleus Inc.
+  4445 | NETDW      | Nabors Energy Transition Corp. II Warrant
+  4447 | TDACW      | Trident Acquisitions Corp. Warrants
+  4475 | SCLXW      | Scilex Holding Company
+  4484 | NVAWW      | Nova Minerals Limited
+  4491 | SOUNW      | SoundHound AI, Inc.
+  4502 | LHSW       | Lianhe Sowell International Group Ltd Ordinary Shares
+  4516 | NTRBW      | Nutriband Inc.
+  4524 | ARQQW      | Arqit Quantum Inc.
+  4543 | SATLW      | Satellogic Inc.
+  4573 | LOKVW      | Live Oak Acquisition Corp. V Warrants
+  4576 | PDYNW      | Palladyne AI Corp.
+  4587 | MDCXW      | Medicus Pharma Ltd.
+  4588 | GTENW      | Gores Holdings X, Inc. Warrants
+  4603 | BNZIW      | Banzai International, Inc.
+  4606 | ONEW       | OneWater Marine Inc.
+  4611 | ACONW      | Aclarion, Inc.
+  4612 | ABLLW      | Abacus Life, Inc.
+  4621 | USARW      | USA Rare Earth Inc
+  4625 | SLDPW      | Solid Power, Inc.
+  4645 | GCMGW      | GCM Grosvenor Inc.
+  4649 | EUDAW      | EUDA Health Holdings Limited
+  4664 | NEOVW      | NeoVolta Inc.
+  4681 | AEVAW      | Aeva Technologies, Inc.
+  4705 | AIRJW      | Montana Technologies Corporation
+  4718 | SKYW       | SkyWest, Inc.
+  4730 | CURIW      | CuriosityStream Inc.
+  4732 | SVIIW      | Spring Valley Acquisition Corp. II
+  4754 | MOBXW      | Mobix Labs, Inc.
+  4771 | PRENW      | Prenetics Global Limited
+  4783 | KIDZW      | Classover Holdings, Inc. Warrants
+  4793 | BGLWW      | Blue Gold Limited Warrant
+  4798 | BCGWW      | Binah Capital Group, Inc.
+  4801 | ISPOW      | Inspirato Incorporated
+  4807 | CMPOW      | CompoSecure, Inc.
+  4813 | NAKAW      | KindlyMD, In
+  4827 | ABPWW      | Abpro Holdings Inc
+  4835 | CXAIW      | CXApp Inc.
+  4841 | ASBPW      | Aspire Biopharma Holdings, Inc.
+  4847 | CEROW      | CERo Therapeutics Holdings, Inc.
+  4867 | SDSTW      | Stardust Power Inc.
+  4882 | PCTTW      | PureCycle Technologies, Inc.
+  4883 | RMCOW      | Royalty Management Holding Corporation
+  4892 | AUROW      | Aurora Innovation, Inc.
+  4893 | MVSTW      | Microvast Holdings, Inc.
+  4894 | PSNYW      | Polestar Automotive Holding UK PLC
+  4897 | RZLVW      | Rezolve AI Limited Warrants
+  4900 | COCHW      | Envoy Medical, Inc.
+  4925 | ARKOW      | Arko Corp.
+  4930 | OPTXW      | Syntec Optics Holdings, Inc.
+  4931 | MNYWW      | MoneyHero Limited Warrants
+  4941 | FUFUW      | BitFuFu Inc.
+  4943 | ZOOZW      | ZOOZ Power Ltd. Warrant
+  4945 | EPOW       | Sunrise New Energy Co., Ltd.
+  4971 | MSAIW      | MultiSensor AI Holdings, Inc.
+  4979 | SLXNW      | Silexion Therapeutics Ltd.
+  4982 | NAMMW      | Namib Minerals Warrants
+  4988 | EMCGW      | Embrace Change Acquisition Corp.
+  4992 | LEXXW      | Lexaria Bioscience Corp.
+  4997 | NIXXW      | Nixxy, Inc.
+  4998 | EVLVW      | Evolv Technologies Holdings, Inc.
+  5002 | SHFSW      | SHF Holdings, Inc.
+  5005 | RSVRW      | Reservoir Media, Inc.
+  5010 | RVMDW      | Revolution Medicines, Inc. Warrant
+  5012 | REVBW      | Revelation Biosciences, Inc.
+  5024 | SWVLW      | Swvl Holdings Corp.
+  5029 | NVVEW      | Nuvve Holding Corp.
+  5047 | ORGNW      | Origin Materials, Inc.
+  5076 | AISPW      | Airship AI Holdings, Inc.
+  5078 | PIIIW      | P3 Health Partners Inc.
+  5082 | SPWRW      | SunPower Corporation
+  5086 | TACOW      | Berto Acquisition Corp. Warrant
+  5087 | BLUW       | Blue Water Acquisition Corp.
+  5091 | COOTW      | Australian Oilseeds Holdings Limited Warrant
+  5095 | GOVXW      | GeoVax Labs, Inc.
+  5098 | AACIW      | Armada Acquisition Corp. II
+  5111 | BSLKW      | Bolt Projects Holdings, Inc.
+  5172 | OSW        | OneSpaWorld Holdings Limited
+  5179 | RVPHW      | Reviva Pharmaceuticals Holdings, Inc.
+  5186 | GROW       | U.S. Global Investors, Inc.
+  5213 | IPW        | iPower Inc.
+  5220 | ADSEW      | ADS-TEC Energy PLC
+  5221 | HTZWW      | Hertz Global Holdings, Inc.
+  5228 | SONDW      | Sonder Holdings Inc.
+  5229 | CINGW      | Cingulate Inc.
+  5235 | XOSWW      | Xos, Inc.
+  5261 | PXLW       | Pixelworks, Inc.
+  5263 | CGCTW      | Cartesian Growth Corporation III Warrant
+  5264 | ADNWW      | Advent Technologies Holdings, Inc.
+  5276 | EOSEW      | Eos Energy Enterprises, Inc.
+  5281 | MRNOW      | Murano Global Investments PLC Warrants
+  5284 | UKOMW      | Ucommune International Ltd
+  5286 | LIDRW      | AEye, Inc.
+  5298 | BAERW      | Bridger Aerospace Group Holdings, Inc. Warrant
+  5303 | DHAIW      | DIH Holding US, Inc. Warrants
+  5306 | BETRW      | Better Home & Finance Holding Company
+  5312 | YORW       | The York Water Company
+  5315 | NRXPW      | NRx Pharmaceuticals, Inc.
+  5318 | LIXTW      | Lixte Biotechnology Holdings, Inc.
+  5346 | ESLAW      | Estrella Immunopharma, Inc.
+  5349 | NCEW       | New Century Logistics (BVI) Limited
+  5370 | WGSWW      | GeneDx Holdings Corp.
+  5374 | AMODW      | Alpha Modus Holdings, Inc.
+  5376 | MSPRW      | MSP Recovery, Inc.
+  5377 | EDBLW      | Edible Garden AG Incorporated
+  5399 | KLTOW      | Klotho Neurosciences, Inc.
+  5400 | IROHW      | Iron Horse Acquisitions Corp. Warrant
+  5405 | ICUCW      | SeaStar Medical Holding Corporation
+  5412 | CDTTW      | Conduit Pharmaceuticals Inc.
+  5415 | ATNFW      | CannBioRx Life Sciences Corp.
+  5417 | RAINW      | Rain Enhancement Technologies Holdco, Inc.
+  5424 | ASTLW      | Algoma Steel Group Inc.
+  5435 | BNAIW      | Brand Engagement Network, Inc.
+  5438 | WTW        | Willis Towers Watson Public Limited Company
+  5439 | CRMLW      | Critical Metals Corp.
+  5449 | FGIWW      | FGI Industries Ltd.
+  5477 | BFRGW      | Bullfrog AI Holdings, Inc. Warrants
+  5501 | TOIIW      | The Oncology Institute, Inc.
+  5504 | CYCUW      | Cycurion, Inc. Warrant
+  5515 | TW         | Tradeweb Markets Inc.
+  5531 | RELIW      | Reliance Global Group, Inc.
+  5541 | HTOOW      | Fusion Fuel Green PLC
+  5543 | VEEAW      | Veea Inc.
+  5630 | BTBDW      | BT Brands, Inc.
+  5631 | WW         | WW International, Inc.
+  5636 | POWW       | AMMO, Inc.
+  5639 | POLEW      | Andretti Acquisition Corp. II
+  5640 | BLUWW      | Blue Water Acquisition Corp.
+  5796 | WALDW      | Waldencast plc
+  5977 | CLSKW      | CleanSpark, Inc.
+  6171 | INKW       | Greene Concepts, Inc.
+  6466 | PSWW       | Principal Solar, Inc.
+  6725 | WLLBW      | Chord Energy Corporation
+  6844 | CRCW       | The Crypto Company
+  6901 | CBDW       | 1606 Corp.
+  7121 | BCOW       | 1895 Bancorp of Wisconsin, Inc.
+  7175 | LTRYW      | Lottery.com Inc.
+  7660 | WNDW       | SolarWindow Technologies, Inc.
+  7664 | SRNW       | Stratos Renewables Corporation
+  8038 | FBYDW      | Falcon's Beyond Global, Inc. Warrants
+  8064 | MMMW       | Mass Megawatts Wind Power, Inc.
+  8169 | CRVW       | CareView Communications, Inc.
+  8210 | CRESW      | Cresud SACIF y A
+  8267 | ALVOW      | Alvotech
+  8274 | FLEW       | Fleetwood Bank Corporation
+  8316 | LPAAW      | Launch One Acquisition Corp.
+  8545 | CLOW       | Cloudweb, Inc.
+  8675 | APCXW      | AppTech Payments Corp.
+  8717 | AVRW       | Avenir Wellness Solutions, Inc.
+  8818 | ENSCW      | Ensysce Biosciences, Inc.
+  8838 | ZEOWW      | Zeo Energy Corp.
+  8854 | FORW       | Forwardly Inc.
+  8871 | SBCWW      | SBC Medical Group Holdings Incorporated
+  8952 | ODVWZ      | Osisko Development Corp. Warrant expiring 5/27/2027
+  8985 | ATIW       | ATI Networks, Inc.
+  9043 | WLDSW      | Wearable Devices Ltd.
+  9084 | NTWOW      | Newbury Street II Acquisition Corp
+  9135 | VCICW      | Vine Hill Capital Investment Corp.
+  9192 | AWAW       | White Fox Ventures, Inc.
+  9369 | COEPW      | Coeptis Therapeutics Holdings, Inc.
+  9370 | SANW       | S&W Seed Company
+  9371 | ILLRW      | Triller Group Inc.
+  9372 | NXGLW      | NEXGEL, Inc.
+  9385 | TVACW      | Thayer Ventures Acquisition Corporation
+  9387 | BIAFW      | bioAffinity Technologies, Inc.
+  9389 | CELUW      | Celularity Inc.
+  9391 | CCIXW      | Churchill Capital Corp IX Warrant
+  9392 | DRMAW      | Dermata Therapeutics, Inc.
+  9393 | VFSWW      | VinFast Auto Ltd.
+  9398 | SEATW      | Vivid Seats Inc.
+  9401 | HSCSW      | Heart Test Laboratories, Inc.
+  9403 | MTEKW      | Maris-Tech Ltd.
+  9404 | CCGWW      | Cheche Group Inc. Warrant
+  9405 | LSBPW      | LakeShore Biopharma Co., Ltd.
+  9408 | ARBEW      | Arbe Robotics Ltd.
+  9410 | KVACW      | Keen Vision Acquisition Corporation Warrant
+  9413 | MLECW      | Moolec Science S.A.
+  9414 | NAMSW      | NewAmsterdam Pharma Company N.V.
+  9415 | CLNNW      | Clene Inc.
+  9416 | SCAGW      | Scage Future Warrants
+  9418 | SAIHW      | SAIHEAT Limited
+  9419 | GIGGW      | GigCapital4, Inc.
+  9420 | ALFUW      | Centurion Acquisition Corp.
+  9422 | ENGNW      | enGene Holdings Inc. Warrants
+  9423 | ATMCW      | AlphaTime Acquisition Corp
+  9424 | PXSAW      | Pyxis Tankers Inc.
+  9426 | ECXWW      | ECARX Holdings Inc.
+  9427 | PTIXW      | Protagenic Therapeutics, Inc.
+  9429 | RNWWW      | ReNew Energy Global plc
+  9433 | LOTWW      | Lotus Technology Inc. Warrants
+  9434 | SHMDW      | SCHMID Group N.V. Warrants
+  9465 | AENTW      | Alliance Entertainment Holding Corporation
+  9478 | HGASW      | Global Gas Corporation
+  9570 | OTTW       | Ottawa Bancorp, Inc.
+  9631 | ATCHW      | Quantum FinTech Acquisition Cor
+  9633 | IGTAW      | Inception Growth Acquisition Limited
+  9640 | GDSTW      | Goldenstone Acquisition Limited
+  9648 | SNPW       | Sun Pacific Holding Corp.
+  9750 | OCEAW      | Ocean Biomedical, Inc.
+  9864 | GPATW      | GP-Act III Acquisition Corp.
+  9872 | BBLGW      | Bone Biologics Corporation
+  9909 | SNTW       | Summit Networks Inc.
+  9979 | HPKEW      | HighPeak Energy, Inc.
+  9985 | NMHIW      | Nature's Miracle Holding Inc.
+  9989 | BEATW      | HeartBeam, Inc.
+ 10087 | ENCW       | Enchanted World Inc.
+ 10095 | TDGMW      | Tidewater Inc.
+ 10187 | PPRW       | Premier Power Renewable Energy, Inc.
+ 10482 | CAWW       | CCA Industries, Inc.
+ 10918 | GMPW       | GiveMePower Corporation
+ 11376 | BBRW       | BrewBilt Manufacturing Inc.
+ 11583 | FFBW       | FFBW, Inc.
+ 11842 | GIPRW      | Generation Income Properties, Inc.
+ 11845 | AIMDW      | Ainos, Inc.
+ 11847 | SPKLW      | Spark I Acquisition Corp. Warrant
+ 11857 | CAPTW      | Captivision Inc. Warrant
+ 11858 | NHICW      | NewHold Investment Corp III
+ 11861 | BRLSW      | Borealis Foods Inc.
+ 11863 | HSPOW      | Horizon Space Acquisition I Corp. Warrant
+ 11865 | JSPRW      | Jasper Therapeutics, Inc.
+ 12092 | UNTCW      | Unit Corporation
+ 12135 | GLLIW      | Globalink Investment Inc.
+ 12164 | MAQCW      | Maquia Capital Acquisition Corporation
+ 12228 | ZIVOW      | ZIVO Bioscience, Inc.
+ 12238 | FWFW       | Flywheel Advanced Technology, Inc.
+ 12242 | INTEW      | Integral Acquisition Corporation 1
+ 12296 | YOTAW      | Yotta Acquisition Corporation
+ 12418 | IGRW       | Interactive Health Network
+ 12521 | BTOW       | GTFN Holdings Inc.
+ 12690 | AFPW       | AlumiFuel Power Corporation
+
