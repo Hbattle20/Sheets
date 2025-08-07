@@ -167,16 +167,19 @@ export default function CompanyCard({ company }: CompanyCardProps) {
     {
       id: 'balance-sheet',
       label: 'Balance Sheet',
+      mobileLabel: 'Balance',
       content: <BalanceSheet data={company.visibleData.historicalData} />
     },
     {
       id: 'income-statement',
       label: 'Income Statement',
+      mobileLabel: 'Income',
       content: <IncomeStatement data={company.visibleData.historicalData} />
     },
     {
       id: 'cash-flow',
       label: 'Cash Flow',
+      mobileLabel: 'Cash Flow',
       content: <CashFlowStatement data={company.visibleData.historicalData} />
     }
   ]

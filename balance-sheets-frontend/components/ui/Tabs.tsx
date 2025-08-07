@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 interface Tab {
   id: string
   label: string
+  mobileLabel?: string
   content: React.ReactNode
 }
 
@@ -18,7 +19,7 @@ export function Tabs({ tabs, defaultTab }: TabsProps) {
   return (
     <div>
       <div className="border-b border-gray-200">
-        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+        <nav className="-mb-px flex space-x-4 sm:space-x-8" aria-label="Tabs">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -30,7 +31,8 @@ export function Tabs({ tabs, defaultTab }: TabsProps) {
                 'whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm transition-colors'
               )}
             >
-              {tab.label}
+              <span className="hidden sm:inline">{tab.label}</span>
+              <span className="sm:hidden">{tab.mobileLabel || tab.label}</span>
             </button>
           ))}
         </nav>
