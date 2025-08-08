@@ -52,16 +52,6 @@ export function CashFlowStatement({ data }: CashFlowStatementProps) {
               </td>
             ))}
           </tr>
-          <tr className="bg-gray-50">
-            <td className="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
-              FCF Per Share
-            </td>
-            {data.map((year) => (
-              <td key={year.year} className="px-3 py-2 whitespace-nowrap text-sm text-right text-gray-900">
-                {year.shares_outstanding === 0 ? '-' : `$${(year.free_cash_flow / year.shares_outstanding).toFixed(2)}`}
-              </td>
-            ))}
-          </tr>
         </tbody>
       </table>
     </div>

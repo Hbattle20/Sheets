@@ -62,16 +62,6 @@ export function IncomeStatement({ data }: IncomeStatementProps) {
               </td>
             ))}
           </tr>
-          <tr>
-            <td className="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
-              Earnings Per Share
-            </td>
-            {data.map((year) => (
-              <td key={year.year} className="px-3 py-2 whitespace-nowrap text-sm text-right text-gray-900">
-                {year.shares_outstanding === 0 ? '-' : `$${(year.net_income / year.shares_outstanding).toFixed(2)}`}
-              </td>
-            ))}
-          </tr>
         </tbody>
       </table>
     </div>
