@@ -81,14 +81,14 @@ export default function MatchDetail({ match }: MatchDetailProps) {
       
       <CardContent>
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-          <h3 className="font-semibold text-green-900 mb-2">Your Successful Match!</h3>
+          <h3 className="font-semibold text-green-900 mb-2">Successful Valuation!</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div>
-              <p className="text-gray-600">Your Guess</p>
+              <p className="text-gray-600">Your Estimate</p>
               <p className="font-bold text-lg">{formatCurrency(match.guess)}</p>
             </div>
             <div>
-              <p className="text-gray-600">Actual Market Cap</p>
+              <p className="text-gray-600">Actual Company Value</p>
               <p className="font-bold text-lg">{formatCurrency(match.actual)}</p>
             </div>
             <div>

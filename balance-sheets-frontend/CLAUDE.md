@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Project Overview
 
-A guessing game where users estimate the market cap of companies based on anonymized financial data. Users input their market cap guess, and if they guess at or above the actual market cap, they "match". The company identity is revealed after guessing, showing if they matched or not.
+An estimation game where users value companies based on anonymized financial data. Users input their company value estimate, and if they estimate at or above the actual value, they "match". The company identity is revealed after estimating, showing if they matched or not.
 
 ## Backend Data Available
 
@@ -31,13 +31,13 @@ WHERE fs.period_end_date = (
 
 ### Data Fields for Game Display
 
-**Hidden Until After Guess:**
+**Hidden Until After Valuation:**
 - Company name
 - Ticker symbol
 - Logo URL
-- Actual market cap
+- Actual company value
 
-**Visible During Guessing:**
+**Visible During Valuation:**
 - Sector (e.g., "Technology", "Healthcare")
 - Financial metrics:
   - Revenue: $X.XB (annual)
@@ -55,15 +55,15 @@ WHERE fs.period_end_date = (
 
 ### Core Flow
 1. User sees anonymized financial data card
-2. User inputs their market cap guess
+2. User inputs their company value estimate
 3. Company identity revealed with animation
-4. Show if they "matched" (guessed ≥ actual market cap)
+4. Show if they "matched" (estimate ≥ actual company value)
 5. Track score/matches
 
 ### Determining a "Match"
-- User guesses the market cap
-- If guess ≥ actual market cap: MATCH ✓
-- If guess < actual market cap: NO MATCH ✗
+- User values the company
+- If estimate ≥ actual value: MATCH ✓
+- If estimate < actual value: NO MATCH ✗
 - Show percentage difference to help users learn
 
 ### Difficulty Levels
@@ -106,8 +106,8 @@ Create a simple API (FastAPI/Express) that connects to the database and provides
 ### Card Design
 ```javascript
 const CompanyCard = {
-  // Visual hierarchy - NO MARKET CAP SHOWN
-  primary: "Guess the Market Cap",
+  // Visual hierarchy - NO COMPANY NAME/PRICE SHOWN
+  primary: "Value the company — no ticker, no hype",
   
   // Key metrics grid
   metrics: {
@@ -122,21 +122,21 @@ const CompanyCard = {
   difficulty: { score: 6, color: "yellow" },
   
   // Guess input
-  guessInput: { placeholder: "Enter market cap (e.g., 500B)", type: "text" }
+  guessInput: { placeholder: "Enter value (e.g., 500B)", type: "text" }
 }
 ```
 
-### Guessing Interactions
-- Market cap input field with formatting (B/T suffix support)
-- Submit button or Enter key to confirm guess
+### Valuation Interactions
+- Value input field with formatting (B/T suffix support)
+- Submit button or Enter key to confirm estimate
 - Reveal animation for company identity
 - Match/no-match celebration or feedback animation
-- Show actual vs guessed market cap comparison
+- Show actual vs estimated value comparison
 
 ### Progressive Disclosure
-1. Start: Only key metrics visible (no market cap)
-2. During guess: User inputs market cap estimate
-3. After guess: Full company details + actual market cap + match result
+1. Start: Only key metrics visible (no company value)
+2. During valuation: User inputs value estimate
+3. After valuation: Full company details + actual company value + match result
 
 ## Recommended Tech Stack
 
@@ -176,9 +176,9 @@ const CompanyCard = {
 ## Development Priorities
 
 1. **MVP Features**
-   - Market cap guessing interface
-   - Company data display (excluding market cap)
-   - Match/no-match logic (guess ≥ actual)
+   - Valuation interface
+   - Company data display (excluding company value)
+   - Match/no-match logic (estimate ≥ actual)
    - Score tracking
 
 2. **Enhanced Features**
@@ -211,8 +211,8 @@ export const formatRatio = (ratio: number, type: 'pe' | 'pb' | 'de'): string => 
   return ratio.toFixed(1);
 };
 
-// Parse market cap guess (handles B/T suffixes)
-export const parseMarketCapGuess = (input: string): number => {
+// Parse value estimate (handles B/T suffixes)
+export const parseValueEstimate = (input: string): number => {
   const cleaned = input.replace(/[$,\s]/g, '');
   const match = cleaned.match(/^(\d+(?:\.\d+)?)\s*([BTM])?$/i);
   if (!match) return 0;
@@ -229,8 +229,8 @@ export const parseMarketCapGuess = (input: string): number => {
 };
 
 // Determine if it's a match
-export const isMatch = (guess: number, actual: number): boolean => {
-  return guess >= actual;
+export const isMatch = (estimate: number, actual: number): boolean => {
+  return estimate >= actual;
 };
 ```
 
@@ -263,12 +263,12 @@ export const mockCompany = {
 
 ## Common Pitfalls to Avoid
 
-1. **Don't reveal company identity or market cap** in the initial data fetch
+1. **Don't reveal company identity or value** in the initial data fetch
 2. **Implement rate limiting** for guesses to prevent gaming
 3. **Handle offline gracefully** with cached data
 4. **Validate financial calculations** match backend
 5. **Test on actual mobile devices** for input experience
-6. **Prevent users from inspecting network requests** to see actual market cap
+6. **Prevent users from inspecting network requests** to see actual value
 
 ## Claude Chat Integration (Implemented)
 

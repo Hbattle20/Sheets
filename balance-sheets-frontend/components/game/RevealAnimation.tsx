@@ -51,12 +51,12 @@ export default function RevealAnimation({ company, guess, onComplete }: RevealAn
             
             <div className="space-y-2">
               <p className="text-lg">
-                Actual Market Cap: <span className="font-bold">
+                Actual Company Value: <span className="font-bold">
                   {formatCurrency(company.hiddenData.market_cap)}
                 </span>
               </p>
               <p className="text-lg">
-                Your Guess: <span className="font-bold">
+                Your Estimate: <span className="font-bold">
                   {formatCurrency(guess)}
                 </span>
               </p>
@@ -67,13 +67,13 @@ export default function RevealAnimation({ company, guess, onComplete }: RevealAn
             {match ? (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
                 <p className="text-2xl font-bold mb-1">MATCH! ✓</p>
-                <p>You guessed {percentDiff >= 0 ? '+' : ''}{percentDiff.toFixed(1)}% 
-                   {percentDiff >= 0 ? ' above' : ' below'} the actual market cap</p>
+                <p>Your estimate is {percentDiff >= 0 ? '+' : ''}{percentDiff.toFixed(1)}% 
+                   {percentDiff >= 0 ? ' above' : ' below'} the actual value</p>
               </div>
             ) : (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
                 <p className="text-2xl font-bold mb-1">NO MATCH ✗</p>
-                <p>You guessed {percentDiff.toFixed(1)}% below the actual market cap</p>
+                <p>Your estimate is {percentDiff.toFixed(1)}% below the actual value</p>
               </div>
             )}
           </animated.div>

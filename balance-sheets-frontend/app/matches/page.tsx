@@ -138,7 +138,7 @@ export default function MatchesPage() {
             <CardContent className="text-center py-12">
               <p className="text-gray-500 mb-4">No matches yet!</p>
               <p className="text-sm text-gray-400">
-                Successfully guess a company's market cap to see it here.
+                Successfully value a company to see it here.
               </p>
             </CardContent>
           </Card>
@@ -161,11 +161,11 @@ export default function MatchesPage() {
                 <CardContent>
                   <div className="space-y-2 text-sm">
                     <div>
-                      <span className="text-gray-600">Your Guess:</span>{' '}
+                      <span className="text-gray-600">Your Estimate:</span>{' '}
                       <span className="font-medium">{formatCurrency(match.guess)}</span>
                     </div>
                     <div>
-                      <span className="text-gray-600">Actual:</span>{' '}
+                      <span className="text-gray-600">Actual Value:</span>{' '}
                       <span className="font-medium">{formatCurrency(match.actual)}</span>
                     </div>
                     <div>

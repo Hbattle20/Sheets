@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
-import { parseMarketCapGuess } from '@/lib/utils'
+import { parseValueEstimate } from '@/lib/utils'
 import { useGameStore } from '@/stores/gameStore'
 
 interface GuessInputProps {
@@ -44,7 +44,7 @@ export default function GuessInput({ onSubmit }: GuessInputProps) {
   }
 
   const onFormSubmit = async (data: FormData) => {
-    const marketCapValue = parseMarketCapGuess(data.guess)
+    const marketCapValue = parseValueEstimate(data.guess)
     
     if (marketCapValue === 0) {
       return
@@ -62,7 +62,7 @@ export default function GuessInput({ onSubmit }: GuessInputProps) {
     <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-4">
       <div>
         <label htmlFor="guess" className="block text-sm font-medium text-gray-700 mb-2">
-          Enter your market cap guess
+          Enter your company value estimate
         </label>
         <div className="flex space-x-2">
           <Input
@@ -71,7 +71,7 @@ export default function GuessInput({ onSubmit }: GuessInputProps) {
             placeholder="e.g., 500B or 1.2T"
             value={displayValue}
             {...register('guess', {
-              required: 'Please enter a guess',
+              required: 'Please enter a value estimate',
               pattern: {
                 value: /^\$?\s*[\d,]+(?:\.\d+)?\s*[BTM]?$/i,
                 message: 'Invalid format. Use numbers with optional B, T, or M suffix'
@@ -82,7 +82,7 @@ export default function GuessInput({ onSubmit }: GuessInputProps) {
             className="flex-1"
           />
           <Button type="submit" disabled={isSubmitting}>
-            Submit Guess
+            Submit Value
           </Button>
         </div>
         {errors.guess && (

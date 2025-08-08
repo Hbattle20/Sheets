@@ -9,8 +9,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Buffett Sheets - Market Cap Guessing Game',
-  description: 'Test your financial literacy by guessing company market caps',
+  title: 'Buffett Sheets - Value Companies, No Ticker, No Hype',
+  description: 'Test your financial literacy by valuing companies from anonymized financials',
 }
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
                   Buffett Sheets
                 </h1>
                 <p className="text-lg text-gray-600">
-                  Guess the market cap based on financial data
+                  Value the company — no ticker, no hype
                 </p>
               </header>
               <Navigation />

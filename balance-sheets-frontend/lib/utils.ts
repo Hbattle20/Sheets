@@ -29,7 +29,7 @@ export const formatRatio = (ratio: number, type: 'pe' | 'pb' | 'de'): string => 
   return ratio.toFixed(1)
 }
 
-export const parseMarketCapGuess = (input: string): number => {
+export const parseValueEstimate = (input: string): number => {
   const cleaned = input.replace(/[$,\s]/g, '')
   const match = cleaned.match(/^(\d+(?:\.\d+)?)\s*([BTM])?$/i)
   if (!match) return 0
