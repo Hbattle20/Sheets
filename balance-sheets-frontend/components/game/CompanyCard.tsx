@@ -27,7 +27,6 @@ export default function CompanyCard({ company }: CompanyCardProps) {
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authModalView, setAuthModalView] = useState<'signin' | 'signup'>('signup')
   const [waitingForAuth, setWaitingForAuth] = useState(false)
-  const [previousUser, setPreviousUser] = useState(user)
   const [pendingMatch, setPendingMatch] = useState<{
     companyId: number
     guess: number
@@ -47,64 +46,51 @@ export default function CompanyCard({ company }: CompanyCardProps) {
     }
   }, [])
 
-  // Watch for authentication changes when waiting
+  // Watch for authentication and save any pending match (works for OAuth redirects too)
   useEffect(() => {
-    
-    // Check if user just signed in (was null, now has value)
-    if (!previousUser && user && (waitingForAuth || pendingMatch)) {
-      
-      // User just authenticated, save the match to database
-      const saveMatch = async () => {
-        // Use pending match data if available, otherwise use current state
-        const matchData = pendingMatch || (lastGuess && company ? {
-          companyId: company.id,
-          guess: lastGuess,
-          actualMarketCap: company.hiddenData.market_cap
-        } : null)
-        
-        if (matchData) {
-          const isMatch = matchData.guess >= matchData.actualMarketCap
-          
-          // Only save if it was actually a match
-          if (!isMatch) {
-            return
-          }
-          
-          try {
-            const { error } = await supabase
-              .from('user_matches')
-              .insert({
-                user_id: user.id,
-                company_id: matchData.companyId,
-                guess: matchData.guess,
-                actual_market_cap: matchData.actualMarketCap,
-                is_match: isMatch,
-                percentage_diff: ((matchData.guess - matchData.actualMarketCap) / matchData.actualMarketCap) * 100,
-              })
-              
-            if (!error) {
-              // Clear from localStorage after successful save
-              localStorage.removeItem('pendingMatch')
-            }
-          } catch (error) {
-            // Error saving match after authentication
-          }
+    if (!user) return
+    if (!(waitingForAuth || pendingMatch)) return
+
+    const saveMatch = async () => {
+      // Prefer pending match; fallback to current state if available
+      const matchData = pendingMatch || (lastGuess && company ? {
+        companyId: company.id,
+        guess: lastGuess,
+        actualMarketCap: company.hiddenData.market_cap,
+      } : null)
+
+      if (!matchData) return
+
+      const isMatch = matchData.guess >= matchData.actualMarketCap
+      if (!isMatch) return
+
+      try {
+        const { error } = await supabase
+          .from('user_matches')
+          .insert({
+            user_id: user.id,
+            company_id: matchData.companyId,
+            guess: matchData.guess,
+            actual_market_cap: matchData.actualMarketCap,
+            is_match: isMatch,
+            percentage_diff: ((matchData.guess - matchData.actualMarketCap) / matchData.actualMarketCap) * 100,
+          })
+
+        if (!error) {
+          localStorage.removeItem('pendingMatch')
         }
+      } catch (error) {
+        // swallow
       }
-      
-      saveMatch()
-      
-      // Clear pending match and proceed with reveal
-      setPendingMatch(null)
-      setWaitingForAuth(false)
-      setShowAuthModal(false)
     }
-    
-    // Update previous user for next render
-    if (user !== previousUser) {
-      setPreviousUser(user)
-    }
-  }, [user, waitingForAuth, lastGuess, company, previousUser, pendingMatch])
+
+    saveMatch()
+
+    // Clear pending state and continue reveal
+    setPendingMatch(null)
+    setWaitingForAuth(false)
+    setShowAuthModal(false)
+  }, [user, waitingForAuth, pendingMatch, lastGuess, company])
 
   const handleGuessSubmit = () => {
     setHasGuessed(true)
