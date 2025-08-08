@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
+import { FcGoogle } from 'react-icons/fc'
+import { FaApple } from 'react-icons/fa'
 
 interface SignInFormProps {
   onSuccess?: () => void
@@ -59,10 +61,12 @@ export function SignInForm({ onSuccess, onSignUpClick, onForgotPasswordClick }: 
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 gap-2">
-        <Button onClick={handleGoogle} variant="outline" className="w-full">
+        <Button onClick={handleGoogle} variant="outline" className="w-full flex items-center justify-center gap-2">
+          <FcGoogle size={18} />
           Continue with Google
         </Button>
-        <Button onClick={handleApple} variant="outline" className="w-full">
+        <Button onClick={handleApple} variant="outline" className="w-full flex items-center justify-center gap-2">
+          <FaApple size={18} />
           Continue with Apple
         </Button>
       </div>
