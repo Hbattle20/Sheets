@@ -12,7 +12,7 @@ interface SignUpFormProps {
 }
 
 export function SignUpForm({ onSuccess, onSignInClick }: SignUpFormProps) {
-  const { signUp } = useAuth()
+  const { signUp, signInWithGoogle, signInWithApple } = useAuth()
   const { showToast } = useToast()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -77,76 +77,106 @@ export function SignUpForm({ onSuccess, onSignInClick }: SignUpFormProps) {
     }
   }
 
+  const handleGoogle = async () => {
+    setError(null)
+    await signInWithGoogle()
+  }
+
+  const handleApple = async () => {
+    setError(null)
+    await signInWithApple()
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-          Email
-        </label>
-        <Input
-          id="email"
-          type="email"
-          placeholder="your@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          autoComplete="email"
-        />
+    <div className="space-y-4">
+      <div className="grid grid-cols-1 gap-2">
+        <Button onClick={handleGoogle} variant="outline" className="w-full">
+          Continue with Google
+        </Button>
+        <Button onClick={handleApple} variant="outline" className="w-full">
+          Continue with Apple
+        </Button>
       </div>
 
-      <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-          Password
-        </label>
-        <Input
-          id="password"
-          type="password"
-          placeholder="••••••••"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          autoComplete="new-password"
-        />
-        <p className="text-xs text-gray-500 mt-1">
-          Must be at least 6 characters
-        </p>
-      </div>
-
-      <div>
-        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
-          Confirm Password
-        </label>
-        <Input
-          id="confirmPassword"
-          type="password"
-          placeholder="••••••••"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-          autoComplete="new-password"
-        />
-      </div>
-
-      {error && (
-        <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-600">
-          {error}
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t" />
         </div>
-      )}
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="bg-white px-2 text-gray-500">Or create with email</span>
+        </div>
+      </div>
 
-      <Button type="submit" disabled={loading} className="w-full">
-        {loading ? 'Creating account...' : 'Create account'}
-      </Button>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            Email
+          </label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="your@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            autoComplete="email"
+          />
+        </div>
 
-      <p className="text-center text-sm text-gray-600">
-        Already have an account?{' '}
-        <button
-          type="button"
-          onClick={onSignInClick}
-          className="text-blue-600 hover:text-blue-500 font-medium"
-        >
-          Sign in
-        </button>
-      </p>
-    </form>
+        <div>
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            Password
+          </label>
+          <Input
+            id="password"
+            type="password"
+            placeholder="••••••••"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            autoComplete="new-password"
+          />
+          <p className="text-xs text-gray-500 mt-1">
+            Must be at least 6 characters
+          </p>
+        </div>
+
+        <div>
+          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+            Confirm Password
+          </label>
+          <Input
+            id="confirmPassword"
+            type="password"
+            placeholder="••••••••"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            autoComplete="new-password"
+          />
+        </div>
+
+        {error && (
+          <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-600">
+            {error}
+          </div>
+        )}
+
+        <Button type="submit" disabled={loading} className="w-full">
+          {loading ? 'Creating account...' : 'Create account'}
+        </Button>
+
+        <p className="text-center text-sm text-gray-600">
+          Already have an account?{' '}
+          <button
+            type="button"
+            onClick={onSignInClick}
+            className="text-blue-600 hover:text-blue-500 font-medium"
+          >
+            Sign in
+          </button>
+        </p>
+      </form>
+    </div>
   )
 }
