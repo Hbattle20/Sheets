@@ -15,7 +15,7 @@ export function Navigation() {
   const [authModalView, setAuthModalView] = useState<'signin' | 'signup'>('signin')
 
   const tabs = [
-    { name: 'Play', href: '/' },
+    { name: 'Analyze', href: '/' },
     { name: 'Matches', href: '/matches' }
   ]
 
