@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { animated, useSpring } from '@react-spring/web'
 import { GameCompany } from '@/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
@@ -20,6 +21,7 @@ interface RevealAnimationProps {
 
 export default function RevealAnimation({ company, guess, onComplete }: RevealAnimationProps) {
   const { nextCompany } = useGameStore()
+  const router = useRouter()
   const [showFinancials, setShowFinancials] = useState(false)
   const match = isMatch(guess, company.hiddenData.market_cap)
   const percentDiff = calculatePercentageDiff(guess, company.hiddenData.market_cap)
@@ -105,9 +107,18 @@ export default function RevealAnimation({ company, guess, onComplete }: RevealAn
           </animated.div>
 
           <div className="flex flex-col items-center gap-3 pt-4">
-            <Button onClick={handleNext} size="lg">
-              Next Company
-            </Button>
+            <div className="flex gap-3">
+              <Button onClick={handleNext} size="lg">
+                Next Company
+              </Button>
+              <Button 
+                onClick={() => router.push('/matches')} 
+                size="lg"
+                variant="outline"
+              >
+                Matches
+              </Button>
+            </div>
             <Button 
               onClick={() => setShowFinancials(!showFinancials)} 
               variant="outline"
