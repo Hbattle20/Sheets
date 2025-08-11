@@ -174,7 +174,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
     <>
       <Card className="max-w-6xl mx-auto">
         <CardHeader>
-          <CardTitle className="text-center">Value the company — no ticker, no hype</CardTitle>
+          <CardTitle className="text-center">Industry</CardTitle>
           <div className="flex items-center justify-center mt-2">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
               {company.visibleData.sector}

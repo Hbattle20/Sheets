@@ -1,10 +1,14 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { animated, useSpring } from '@react-spring/web'
 import { GameCompany } from '@/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { Tabs } from '@/components/ui/Tabs'
+import { BalanceSheet } from './BalanceSheet'
+import { IncomeStatement } from './IncomeStatement'
+import { CashFlowStatement } from './CashFlowStatement'
 import { formatCurrency, isMatch, calculatePercentageDiff } from '@/lib/utils'
 import { useGameStore } from '@/stores/gameStore'
 
@@ -16,6 +20,7 @@ interface RevealAnimationProps {
 
 export default function RevealAnimation({ company, guess, onComplete }: RevealAnimationProps) {
   const { nextCompany } = useGameStore()
+  const [showFinancials, setShowFinancials] = useState(false)
   const match = isMatch(guess, company.hiddenData.market_cap)
   const percentDiff = calculatePercentageDiff(guess, company.hiddenData.market_cap)
 
@@ -36,6 +41,27 @@ export default function RevealAnimation({ company, guess, onComplete }: RevealAn
     nextCompany()
     onComplete()
   }
+
+  const financialTabs = [
+    {
+      id: 'balance-sheet',
+      label: 'Balance Sheet',
+      mobileLabel: 'Balance',
+      content: <BalanceSheet data={company.visibleData.historicalData} />
+    },
+    {
+      id: 'income-statement',
+      label: 'Income Statement',
+      mobileLabel: 'Income',
+      content: <IncomeStatement data={company.visibleData.historicalData} />
+    },
+    {
+      id: 'cash-flow',
+      label: 'Cash Flow',
+      mobileLabel: 'Cash Flow',
+      content: <CashFlowStatement data={company.visibleData.historicalData} />
+    }
+  ]
 
   return (
     <animated.div style={revealSpring}>
@@ -78,13 +104,33 @@ export default function RevealAnimation({ company, guess, onComplete }: RevealAn
             )}
           </animated.div>
 
-          <div className="text-center pt-4">
+          <div className="flex flex-col items-center gap-3 pt-4">
             <Button onClick={handleNext} size="lg">
               Next Company
+            </Button>
+            <Button 
+              onClick={() => setShowFinancials(!showFinancials)} 
+              variant="outline"
+              size="sm"
+            >
+              {showFinancials ? 'Hide' : 'Review'} Financials
             </Button>
           </div>
         </CardContent>
       </Card>
+
+      {showFinancials && (
+        <animated.div style={matchSpring} className="mt-4">
+          <Card className="max-w-2xl mx-auto">
+            <CardHeader>
+              <CardTitle className="text-lg">Financial Statements</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Tabs tabs={financialTabs} defaultTab="balance-sheet" />
+            </CardContent>
+          </Card>
+        </animated.div>
+      )}
     </animated.div>
   )
 }

@@ -68,7 +68,7 @@ export default function GuessInput({ onSubmit }: GuessInputProps) {
           <Input
             id="guess"
             type="text"
-            placeholder="e.g., 500B or 1.2T"
+            placeholder="Use B for billions (500B) or T for trillions (1.2T)"
             value={displayValue}
             {...register('guess', {
               required: 'Please enter a value estimate',
@@ -89,10 +89,6 @@ export default function GuessInput({ onSubmit }: GuessInputProps) {
           <p className="mt-1 text-sm text-red-600">{errors.guess.message}</p>
         )}
       </div>
-      
-      <p className="text-xs text-gray-500">
-        Tip: You can use B for billions (e.g., 500B) or T for trillions (e.g., 1.2T)
-      </p>
     </form>
   )
 }
